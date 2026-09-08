@@ -43,7 +43,6 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps) {
           aria-hidden="true"
         >
           <path d="M40 210 C80 160 120 100 190 35" strokeWidth="1.25" strokeLinecap="round" />
-          {/* Leaves along branch */}
           <path d="M80 165 C68 145 84 135 96 148 C88 158 80 165 80 165Z" strokeWidth="1" fill="currentColor" fillOpacity="0.3" />
           <path d="M105 138 C122 126 132 138 118 150 C110 144 105 138 105 138Z" strokeWidth="1" fill="currentColor" fillOpacity="0.3" />
           <path d="M128 108 C116 88 136 78 145 94 C136 102 128 108 128 108Z" strokeWidth="1" fill="currentColor" fillOpacity="0.3" />
@@ -78,42 +77,37 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Headlines & Stats (7 cols) */}
+          {/* Left Column: Headlines, Trust Stats & CTA (7 cols) */}
           <div className="lg:col-span-7 space-y-7">
-            {/* Main Editorial Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-slate-900 leading-[1.08] tracking-tight">
-              Trusted Care, <br className="hidden sm:inline" />
-              <span className="text-blue-900 italic font-semibold font-serif">Right at Home.</span>
-            </h1>
+            <div className="space-y-4">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light text-slate-900 tracking-tight leading-[1.12]">
+                Trusted Care, <span className="text-blue-900 font-normal italic">Right at Home.</span>
+              </h1>
+              <p className="text-base sm:text-lg text-slate-600 font-normal max-w-xl leading-relaxed">
+                Compassionate and reliable home-care support for senior citizens, newborns, babies, and families — delivering peace of mind, safety, and dignity right to your door in Raipur.
+              </p>
+            </div>
 
-            {/* Supporting Text */}
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl font-normal">
-              Compassionate and reliable home-care support for senior citizens, newborns, babies and
-              families — delivered with care, dignity and trust.
-            </p>
-
-            {/* Editorial Stat Counter Divider */}
-            <div className="mt-8 flex items-center gap-7 sm:gap-10 border-t border-slate-200/90 pt-8">
-              <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-serif font-bold text-blue-900">15k+</span>
-                <span className="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">Families Served</span>
+            {/* Core Statistics / Trust Badges */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 py-2 border-y border-slate-200/80">
+              <div className="space-y-1">
+                <div className="text-2xl sm:text-3xl font-serif font-semibold text-slate-900">15k+</div>
+                <div className="text-xs text-slate-500 font-medium">Families Served</div>
               </div>
-              <div className="w-px h-12 bg-slate-200" />
-              <div className="flex flex-col">
-                <span className="text-3xl sm:text-4xl font-serif font-bold text-blue-900">24/7</span>
-                <span className="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">Dedicated Support</span>
+              <div className="space-y-1 border-x border-slate-200/80 px-3 sm:px-6">
+                <div className="text-2xl sm:text-3xl font-serif font-semibold text-blue-900">24/7</div>
+                <div className="text-xs text-slate-500 font-medium">Dedicated Support</div>
               </div>
-              <div className="w-px h-12 bg-slate-200 hidden sm:block" />
-              <div className="hidden sm:flex flex-col">
-                <span className="text-3xl sm:text-4xl font-serif font-bold text-blue-900">100%</span>
-                <span className="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-1">Care Focused</span>
+              <div className="space-y-1">
+                <div className="text-2xl sm:text-3xl font-serif font-semibold text-emerald-700">100%</div>
+                <div className="text-xs text-slate-500 font-medium">Care Focused</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Warm Realistic Domestic Photography with Dual-Layer Depth Framing (5 cols) */}
+          {/* Right Column: Warm Realistic Domestic Photography with Dual-Layer Framing (5 cols) */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Outer soft ambient aura for depth */}
@@ -127,12 +121,12 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 <div className="relative rounded-2xl overflow-hidden aspect-4/3 sm:aspect-16/11 lg:aspect-4/3">
                   <Image
                     src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80"
-                    alt="Professional female caregiver in clean blue scrubs assisting smiling senior grandmother at home"
+                    alt="Attentive female caregiver assisting a smiling senior grandmother in a comfortable home environment"
                     fill
                     priority
-                    className="object-cover object-center transform hover:scale-102 transition-transform duration-700"
+                    className="object-cover object-center"
                     referrerPolicy="no-referrer"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 600px"
                   />
                 </div>
               </div>

@@ -3,13 +3,13 @@
 import React, { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { HeroSection } from '@/components/HeroSection';
-import { AboutAndCareSection } from '@/components/AboutAndCareSection';
-import { HowItWorksSection } from '@/components/HowItWorksSection';
+import { CareTeamSection as AboutUsSection } from '@/components/CareTeamSection';
+import { WhyChooseUsSection } from '@/components/WhyChooseUsSection';
 import { ServicesSection } from '@/components/ServicesSection';
-import { CareTeamSection } from '@/components/CareTeamSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { FaqSection } from '@/components/FaqSection';
+import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { ContactSection } from '@/components/ContactSection';
+import { FaqSection } from '@/components/FaqSection';
 import { Footer } from '@/components/Footer';
 import { BookingModal } from '@/components/BookingModal';
 import { ServiceDetailModal } from '@/components/ServiceDetailModal';
@@ -51,20 +51,20 @@ export default function HomePage() {
         {/* 1. Hero Section */}
         <HeroSection onOpenBooking={scrollToContact} />
 
-        {/* 2. Consolidated About & Care Section */}
-        <AboutAndCareSection onOpenBooking={() => handleOpenBooking()} />
+        {/* 2. About Us Section */}
+        <AboutUsSection onLearnMore={scrollToContact} />
 
-        {/* 3. Dedicated How It Works Section */}
-        <HowItWorksSection />
-
-        {/* 4. Services Section (All 6 core services) */}
+        {/* 3. Services Section */}
         <ServicesSection
           onSelectService={(service) => setActiveDetailService(service)}
           onBookService={(title) => handleOpenBooking(title)}
         />
 
-        {/* 5. Care Team Section */}
-        <CareTeamSection onLearnMore={scrollToContact} />
+        {/* 4. How It Works Section */}
+        <HowItWorksSection />
+
+        {/* 5. Why Us Section */}
+        <WhyChooseUsSection onOpenBooking={scrollToContact} />
 
         {/* 6. Testimonials Section */}
         <TestimonialsSection />
@@ -72,7 +72,7 @@ export default function HomePage() {
         {/* 7. FAQ Section */}
         <FaqSection />
 
-        {/* 8. Contact & Inquiry Section with Real Details */}
+        {/* 8. Contact Section */}
         <ContactSection initialService={selectedServiceTitle} />
       </main>
 
