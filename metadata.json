@@ -1,0 +1,6 @@
+{
+  "name": "Sawariya Home Care",
+  "description": "Trusted, compassionate and reliable home-care support for senior citizens, newborns, babies, and families — right at home.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
