@@ -36,7 +36,7 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-16/11 sm:aspect-4/3">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+                  src="/images/director.webp"
                   alt="Director, Sawariya Home Care"
                   fill
                   className="object-cover object-top"

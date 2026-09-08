@@ -119,9 +119,6 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                         >
                           {phone.display}
                         </a>
-                        <span className="text-[11px] font-semibold text-blue-900 bg-blue-50 px-2 py-0.5 rounded-full">
-                          24/7 Available
-                        </span>
                       </div>
                     ))}
                   </div>

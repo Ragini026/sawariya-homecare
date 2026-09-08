@@ -56,8 +56,8 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
               {/* Image Container */}
               <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-white aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
                 <Image
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80"
-                  alt="Compassionate caregiver holding hands of a senior patient with warmth and kindness"
+                  src="/images/why-choose-us.webp"
+                  alt="Compassionate Indian caregiver supporting a senior patient with warmth and kindness"
                   fill
                   className="object-cover object-center hover:scale-102 transition-transform duration-500"
                   referrerPolicy="no-referrer"

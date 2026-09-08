@@ -36,7 +36,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Senior Citizen / Elder Care',
     shortDesc: 'Compassionate support for seniors with everyday assistance, companionship and personal care in the comfort of home.',
     fullDesc: 'Ageing in familiar surroundings gives seniors emotional security and dignified independence. Our trained home attendants assist with daily routines, medication reminders, wholesome meal assistance, mobility support, and heartwarming companionship, relieving family stress and fostering happiness.',
-    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/senior-care.webp',
     iconName: 'HeartHandshake',
     category: 'Elderly Support',
     features: [
@@ -58,7 +58,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Newborn & Baby Care',
     shortDesc: 'Gentle and attentive support for newborns and babies, helping parents feel more confident and supported at home.',
     fullDesc: 'Welcoming a newborn is a wondrous yet demanding milestone. Our specialized baby care assistants provide dedicated support for mother and child, focusing on baby massage, sponge bath, safe feeding posture, diaper care, and night comfort routines so mothers can recuperate with peace of mind.',
-    image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/baby-care.webp',
     iconName: 'Baby',
     category: 'Maternal & Infant',
     features: [
@@ -80,7 +80,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Babysitting',
     shortDesc: 'Trusted childcare and supervision for families who need dependable support for their little ones.',
     fullDesc: 'Finding reliable, patient, and caring supervision for growing children is essential for modern busy families. Our babysitters engage toddlers and youngsters with wholesome offline activities, story time, nutritious meal assistance, and safe playtime supervision.',
-    image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/babysitting.webp',
     iconName: 'Smile',
     category: 'Childcare',
     features: [
@@ -102,7 +102,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Home Nursing',
     shortDesc: 'Professional nursing support delivered in the comfort and familiarity of home.',
     fullDesc: 'Clinical recovery is often faster and far less stressful in a homely atmosphere. Our qualified nursing staff provides doctor-prescribed nursing interventions, including post-operative wound dressing, catheter management, IV infusion support, injections, and comprehensive vital sign monitoring.',
-    image: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/home-nursing.webp',
     iconName: 'Activity',
     category: 'Clinical Care',
     features: [
@@ -124,7 +124,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Physiotherapy at Home',
     shortDesc: 'Convenient physiotherapy support at home to help individuals continue their recovery and mobility journey.',
     fullDesc: 'Traveling to rehabilitation clinics can be exhausting and painful for recovering patients. Our certified physiotherapists bring specialized equipment and targeted exercise protocols directly to your home for stroke rehabilitation, orthopedic surgery recovery, arthritis mobility, and neurological conditioning.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/physiotherapy.webp',
     iconName: 'Accessibility',
     category: 'Rehabilitation',
     features: [
@@ -146,7 +146,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Medical Equipment Support',
     shortDesc: 'Home-care support and medical equipment solutions for families requiring additional care at home.',
     fullDesc: 'For patients transitioning from hospital ICUs or requiring high-dependency respiratory and monitoring support, we supply, install, and support medical equipment at home. This includes hospital motorized beds, oxygen concentrators, BiPAP/CPAP, suction machines, patient monitors, and wheelchairs.',
-    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/medical-equipment.webp',
     iconName: 'Bed',
     category: 'Equipment & Critical',
     features: [
@@ -273,13 +273,6 @@ export const TESTIMONIALS_DATA = [
     name: 'Meenakshi Sundaram',
     relation: 'Family Caregiver',
     location: 'Home Nursing Support',
-    rating: 5,
-  },
-  {
-    quote: 'Their care team coordinated an attendant within hours when my elderly grandmother needed 24-hour bedside assistance. Highly professional and dependable service.',
-    name: 'Rajesh & Pooja Agarwal',
-    relation: 'Grandson & Family',
-    location: '24-Hour Bedside Care',
     rating: 5,
   },
 ];

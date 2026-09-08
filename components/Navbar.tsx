@@ -96,14 +96,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           </div>
 
           {/* Mobile Menu Hamburger Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <button
-              onClick={handleBookCaregiverClick}
-              className="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-blue-900 shadow-md shadow-blue-900/20 active:scale-95 transition-transform"
-              id="mobile-quick-book-btn"
-            >
-              Book Care
-            </button>
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-hidden cursor-pointer"

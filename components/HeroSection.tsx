@@ -120,8 +120,8 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps) {
               <div className="relative rounded-3xl p-2 bg-white/95 shadow-2xl shadow-blue-950/10 ring-1 ring-slate-200/80">
                 <div className="relative rounded-2xl overflow-hidden aspect-4/3 sm:aspect-16/11 lg:aspect-4/3">
                   <Image
-                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80"
-                    alt="Attentive female caregiver assisting a smiling senior grandmother in a comfortable home environment"
+                    src="/images/hero-eldercare.webp"
+                    alt="Attentive Indian caregiver assisting an elderly senior in a comfortable home environment"
                     fill
                     priority
                     className="object-cover object-center"
