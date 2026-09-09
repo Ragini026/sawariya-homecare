@@ -81,7 +81,7 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
                 alt="Madhu Suryavanshi — Director, Sawariya Home Care"
                 fill
               className="object-cover"
-                style={{ objectPosition: "center -15%" }}
+                style={{ objectPosition: "center top" }}
                 referrerPolicy="no-referrer"
                 sizes="(max-width: 768px) 100vw, 520px"
                 priority
