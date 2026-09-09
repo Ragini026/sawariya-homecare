@@ -80,7 +80,8 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
                 src="/images/madhu-suryavanshi.png"
                 alt="Madhu Suryavanshi — Director, Sawariya Home Care"
                 fill
-               className="object-cover object-[center_-25px]"
+              className="object-cover"
+                style={{ objectPosition: "center -15%" }}
                 referrerPolicy="no-referrer"
                 sizes="(max-width: 768px) 100vw, 520px"
                 priority
