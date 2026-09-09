@@ -47,7 +47,7 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
           >
             <div className="relative w-full aspect-4/3 sm:aspect-16/11 overflow-hidden bg-slate-100">
               <Image
-                src="/file_0000000075688230820630dfc8ab9f74.png"
+                src="/images/prashant-suryavanshi.png"
                 alt="Prashant Suryavanshi — Director, Sawariya Home Care"
                 fill
                 className="object-cover object-top"
@@ -57,21 +57,16 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
               />
             </div>
 
-            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
-                  Executive Director
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
-                  Prashant Suryavanshi
-                </h3>
-                <p className="text-sm font-semibold text-blue-900 mt-1">
-                  Director, Sawariya Home Care
-                </p>
-                <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
-                  Leading executive healthcare management and strategic direction with an uncompromising commitment to dependable, patient-first care and dignified home healthcare solutions.
-                </p>
-              </div>
+            <div className="p-6 sm:p-7">
+              <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
+                Executive Director
+              </span>
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
+                Prashant Suryavanshi
+              </h3>
+              <p className="text-sm font-semibold text-blue-900 mt-1">
+                Director, Sawariya Home Care
+              </p>
             </div>
           </div>
 
@@ -82,7 +77,7 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
           >
             <div className="relative w-full aspect-4/3 sm:aspect-16/11 overflow-hidden bg-slate-100">
               <Image
-                src="/file_00000000911c820bbc7f57d15590ec0a.png"
+                src="/images/madhu-suryavanshi.png"
                 alt="Madhu Suryavanshi — Director, Sawariya Home Care"
                 fill
                 className="object-cover object-top"
@@ -92,21 +87,16 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
               />
             </div>
 
-            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
-                  Operations & Care Director
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
-                  Madhu Suryavanshi
-                </h3>
-                <p className="text-sm font-semibold text-blue-900 mt-1">
-                  Director, Sawariya Home Care
-                </p>
-                <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
-                  Overseeing patient care standards, dedicated caregiver coordination, and continuous client satisfaction to ensure every family experiences compassionate and reliable support.
-                </p>
-              </div>
+            <div className="p-6 sm:p-7">
+              <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
+                Operations & Care Director
+              </span>
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
+                Madhu Suryavanshi
+              </h3>
+              <p className="text-sm font-semibold text-blue-900 mt-1">
+                Director, Sawariya Home Care
+              </p>
             </div>
           </div>
         </div>
