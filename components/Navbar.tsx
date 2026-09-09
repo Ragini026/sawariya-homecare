@@ -156,15 +156,15 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             </button>
           </div>
 
-          {/* Navigation Links and CTA occupying full mobile viewport */}
-          <div className="flex-1 flex flex-col justify-between px-6 py-6 overflow-y-auto bg-white">
+          {/* Navigation Links and CTA occupying mobile viewport */}
+          <div className="flex-1 flex flex-col px-5 sm:px-6 py-4 sm:py-6 overflow-y-auto bg-white">
             <nav className="flex flex-col divide-y divide-slate-100" aria-label="Mobile Menu Links">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="py-4 text-lg font-medium text-slate-800 hover:text-blue-900 active:text-blue-900 transition-colors"
+                  className="py-2.5 sm:py-3 text-base sm:text-lg font-medium text-slate-800 hover:text-blue-900 active:text-blue-900 transition-colors"
                   id={`mobile-nav-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
@@ -172,8 +172,8 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
               ))}
             </nav>
 
-            {/* Book a Caregiver button */}
-            <div className="pt-6 mt-auto border-t border-slate-200 shrink-0">
+            {/* Book a Caregiver button positioned directly below Contact */}
+            <div className="pt-4 sm:pt-5">
               <button
                 onClick={handleBookCaregiverClick}
                 className="w-full py-3.5 rounded-xl text-center font-bold text-white bg-blue-900 hover:bg-blue-800 active:scale-[0.99] transition-colors shadow-md shadow-blue-900/15 cursor-pointer text-base"

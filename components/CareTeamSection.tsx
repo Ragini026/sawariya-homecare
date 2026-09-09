@@ -8,73 +8,105 @@ interface AboutUsSectionProps {
 }
 
 export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
-  const organizationalValues = [
-    {
-      title: 'Compassionate Care',
-      desc: 'Delivering gentle, empathetic assistance that honors client dignity and emotional comfort at home.',
-    },
-    {
-      title: 'Personalized Support',
-      desc: 'Customizing care plans to align with each individual’s medical requirements and household habits.',
-    },
-    {
-      title: 'Trusted & Reliable Service',
-      desc: 'Ensuring punctual attendance, rigorous staff verification, and continuous supervisory oversight.',
-    },
-    {
-      title: 'Family-Centered Approach',
-      desc: 'Maintaining transparent communication with relatives to provide absolute daily peace of mind.',
-    },
-  ];
-
   return (
-    <section id="about-us" className="py-16 sm:py-20 lg:py-24 bg-slate-50 border-t border-slate-200/80 relative overflow-hidden">
+    <section
+      id="about-us"
+      className="py-16 sm:py-20 lg:py-24 bg-slate-50 border-t border-slate-200/80 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Director's Portrait and Minimal Info (6 cols) */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-16/11 sm:aspect-4/3">
-                <Image
-                  src="/images/director.webp"
-                  alt="Director, Sawariya Home Care"
-                  fill
-                  className="object-cover object-top"
-                  referrerPolicy="no-referrer"
-                  sizes="(max-width: 768px) 100vw, 600px"
-                />
-              </div>
+        {/* 1. Centered About Us Heading & Description (At the TOP) */}
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-16 space-y-4">
+          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-900 text-xs font-semibold uppercase tracking-wider">
+            About Sawariya Home Care
+          </div>
 
-              {/* Elegant & Minimal Director Info */}
-              <div className="mt-4 text-center sm:text-left">
-                <span className="text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
-                  OUR DIRECTOR
+          <h2
+            id="about-us-heading"
+            className="text-2xl sm:text-3xl lg:text-[34px] xl:text-4xl font-serif font-light text-slate-900 tracking-tight leading-tight"
+          >
+            Compassionate Care,{' '}
+            <span className="text-blue-900 italic font-semibold font-serif">
+              Built Around Your Family.
+            </span>
+          </h2>
+
+          <p
+            id="about-us-description"
+            className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
+          >
+            Sawariya Home Care was established to provide dependable healthcare support and genuine companionship directly in the comfort of your home. We bridge the gap between hospital-level assistance and everyday domestic life, ensuring your loved ones receive attentive, respectful care in familiar surroundings.
+          </p>
+        </div>
+
+        {/* 2. Director Profiles Area (BELOW Heading and Description) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+          {/* Director Profile 1 — Prashant Suryavanshi */}
+          <div
+            id="director-profile-prashant"
+            className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col transition-all duration-200 hover:shadow-md hover:border-blue-200"
+          >
+            <div className="relative w-full aspect-4/3 sm:aspect-16/11 overflow-hidden bg-slate-100">
+              <Image
+                src="/file_0000000075688230820630dfc8ab9f74.png"
+                alt="Prashant Suryavanshi — Director, Sawariya Home Care"
+                fill
+                className="object-cover object-top"
+                referrerPolicy="no-referrer"
+                sizes="(max-width: 768px) 100vw, 520px"
+                priority
+              />
+            </div>
+
+            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
+                  Executive Director
                 </span>
-                <h3 className="text-lg font-serif font-bold text-slate-900 tracking-tight mt-1.5">
-                  Director, Sawariya Home Care
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
+                  Prashant Suryavanshi
                 </h3>
+                <p className="text-sm font-semibold text-blue-900 mt-1">
+                  Director, Sawariya Home Care
+                </p>
+                <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                  Leading executive healthcare management and strategic direction with an uncompromising commitment to dependable, patient-first care and dignified home healthcare solutions.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: About Sawariya Home Care & 4 Supporting Values (6 cols) */}
-          <div className="lg:col-span-6 space-y-6">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-4xl font-serif font-light text-slate-900 tracking-tight leading-tight">
-              Compassionate Care, <span className="text-blue-900 italic font-semibold font-serif">Built Around Your Family.</span>
-            </h2>
+          {/* Director Profile 2 — Madhu Suryavanshi */}
+          <div
+            id="director-profile-madhu"
+            className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col transition-all duration-200 hover:shadow-md hover:border-blue-200"
+          >
+            <div className="relative w-full aspect-4/3 sm:aspect-16/11 overflow-hidden bg-slate-100">
+              <Image
+                src="/file_00000000911c820bbc7f57d15590ec0a.png"
+                alt="Madhu Suryavanshi — Director, Sawariya Home Care"
+                fill
+                className="object-cover object-top"
+                referrerPolicy="no-referrer"
+                sizes="(max-width: 768px) 100vw, 520px"
+                priority
+              />
+            </div>
 
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
-              Sawariya Home Care was established to provide dependable healthcare support and genuine companionship directly in the comfort of your home. We bridge the gap between hospital-level assistance and everyday domestic life, ensuring your loved ones receive attentive, respectful care in familiar surroundings.
-            </p>
-
-            {/* 4 Supporting Approach Blocks */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-              {organizationalValues.map((item) => (
-                <div key={item.title} className="p-4 rounded-2xl bg-white border border-slate-100 shadow-xs">
-                  <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
+            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
+                  Operations & Care Director
+                </span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
+                  Madhu Suryavanshi
+                </h3>
+                <p className="text-sm font-semibold text-blue-900 mt-1">
+                  Director, Sawariya Home Care
+                </p>
+                <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                  Overseeing patient care standards, dedicated caregiver coordination, and continuous client satisfaction to ensure every family experiences compassionate and reliable support.
+                </p>
+              </div>
             </div>
           </div>
         </div>
