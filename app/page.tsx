@@ -9,7 +9,6 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { FaqSection } from '@/components/FaqSection';
-import { ServiceEnquiryCta } from '@/components/ServiceEnquiryCta';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import { BookingModal } from '@/components/BookingModal';
@@ -73,10 +72,7 @@ export default function HomePage() {
         {/* 7. FAQ Section */}
         <FaqSection />
 
-        {/* 8. CTA Section */}
-        <ServiceEnquiryCta onRequestCare={scrollToContact} />
-
-        {/* 9. Contact Section */}
+        {/* 8. Contact Section */}
         <ContactSection initialService={selectedServiceTitle} />
       </main>
 
