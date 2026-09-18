@@ -6,7 +6,7 @@ import { SawariyaLogo } from './SawariyaLogo';
 import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenBooking?: (serviceName?: string) => void;
+  onOpenBooking?: () => void;
 }
 
 export function Navbar({ onOpenBooking }: NavbarProps) {
@@ -69,60 +69,64 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full transition-all duration-300" id="main-header">
-        {/* Main Sticky Navbar */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#071A35]/95 backdrop-blur-md shadow-xl border-b border-white/10 py-3'
+            : 'bg-[#071A35]/40 backdrop-blur-xs py-4 border-b border-white/5'
+        }`}
+        id="main-header"
+      >
         <nav
-          className={`w-full transition-all duration-300 ${
-            isScrolled
-              ? 'bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-slate-200/80'
-              : 'bg-white py-4 border-b border-slate-100'
-          }`}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between"
           aria-label="Main Navigation"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            {/* Brand Logo */}
-            <Link href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="focus:outline-hidden">
-              <SawariyaLogo size="md" />
-            </Link>
+          {/* Brand Logo - Crisp White/Cyan on Dark */}
+          <Link
+            href="#hero"
+            onClick={(e) => handleNavClick(e, '#hero')}
+            className="focus:outline-hidden"
+          >
+            <SawariyaLogo variant="dark" size="md" />
+          </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-7">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-medium text-slate-600 hover:text-blue-900 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-900 hover:after:w-full after:transition-all after:duration-200"
-                  id={`nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Right Action CTA: Book a Caregiver Button */}
-            <div className="hidden sm:flex items-center">
-              <button
-                onClick={handleBookCaregiverClick}
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-blue-900 hover:bg-blue-800 active:scale-[0.98] shadow-md shadow-blue-900/15 hover:shadow-lg hover:shadow-blue-900/25 transition-all duration-200 cursor-pointer"
-                id="navbar-book-caregiver-btn"
+          {/* Desktop Navigation Links - White/Light text */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-medium text-slate-200 hover:text-[#4CAF7D] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#4CAF7D] hover:after:w-full after:transition-all after:duration-200"
+                id={`nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                Book a Caregiver
-              </button>
-            </div>
+                {link.label}
+              </a>
+            ))}
+          </div>
 
-            {/* Mobile Menu Hamburger Button */}
-            <div className="flex items-center lg:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-hidden cursor-pointer"
-                aria-label="Toggle mobile menu"
-                aria-expanded={mobileMenuOpen}
-                id="mobile-menu-toggle-btn"
-              >
-                <Menu className="w-6 h-6" />
-              </button>
-            </div>
+          {/* Right Action CTA: Book a Caregiver (Healthcare Green) */}
+          <div className="hidden sm:flex items-center">
+            <button
+              onClick={handleBookCaregiverClick}
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer"
+              id="navbar-book-caregiver-btn"
+            >
+              Book a Caregiver
+            </button>
+          </div>
+
+          {/* Mobile Menu Hamburger Button */}
+          <div className="flex items-center lg:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-hidden cursor-pointer"
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
+              id="mobile-menu-toggle-btn"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
         </nav>
       </header>
@@ -130,25 +134,25 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
       {/* Full-Height Mobile Navigation Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-50 bg-white flex flex-col h-screen h-[100dvh] w-screen max-w-full overflow-hidden lg:hidden"
+          className="fixed inset-0 z-50 bg-[#071A35] flex flex-col h-screen h-[100dvh] w-screen max-w-full overflow-hidden lg:hidden text-white"
           id="mobile-navigation-overlay"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
         >
           {/* Top Bar with Logo & Close (X) Icon */}
-          <div className="w-full bg-white py-4 px-4 sm:px-6 border-b border-slate-100 flex items-center justify-between shrink-0">
+          <div className="w-full bg-[#071A35] py-4 px-4 sm:px-6 border-b border-white/10 flex items-center justify-between shrink-0">
             <Link
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
               className="focus:outline-hidden"
             >
-              <SawariyaLogo size="md" />
+              <SawariyaLogo variant="dark" size="md" />
             </Link>
 
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-hidden cursor-pointer"
+              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-hidden cursor-pointer"
               aria-label="Close mobile menu"
               id="mobile-menu-close-btn"
             >
@@ -157,14 +161,14 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           </div>
 
           {/* Navigation Links and CTA occupying mobile viewport */}
-          <div className="flex-1 flex flex-col px-5 sm:px-6 py-4 sm:py-6 overflow-y-auto bg-white">
-            <nav className="flex flex-col divide-y divide-slate-100" aria-label="Mobile Menu Links">
+          <div className="flex-1 flex flex-col px-6 py-6 overflow-y-auto bg-[#071A35]">
+            <nav className="flex flex-col divide-y divide-white/10" aria-label="Mobile Menu Links">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="py-2.5 sm:py-3 text-base sm:text-lg font-medium text-slate-800 hover:text-blue-900 active:text-blue-900 transition-colors"
+                  className="py-3 text-lg font-medium text-slate-200 hover:text-[#4CAF7D] active:text-[#4CAF7D] transition-colors"
                   id={`mobile-nav-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
@@ -172,11 +176,11 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
               ))}
             </nav>
 
-            {/* Book a Caregiver button positioned directly below Contact */}
-            <div className="pt-4 sm:pt-5">
+            {/* Book a Caregiver button positioned directly below Contact without empty space */}
+            <div className="pt-6">
               <button
                 onClick={handleBookCaregiverClick}
-                className="w-full py-3.5 rounded-xl text-center font-bold text-white bg-blue-900 hover:bg-blue-800 active:scale-[0.99] transition-colors shadow-md shadow-blue-900/15 cursor-pointer text-base"
+                className="w-full py-3.5 rounded-xl text-center font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.99] transition-colors shadow-lg shadow-emerald-950/40 cursor-pointer text-base"
                 id="mobile-drawer-book-btn"
               >
                 Book a Caregiver

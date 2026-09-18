@@ -3,98 +3,91 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface AboutUsSectionProps {
+interface CareTeamSectionProps {
   onLearnMore?: () => void;
 }
 
-export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
+export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
   return (
     <section
       id="about-us"
-      className="py-16 sm:py-20 lg:py-24 bg-slate-50 border-t border-slate-200/80 relative overflow-hidden"
+      className="py-18 sm:py-24 lg:py-28 bg-[#F8FAFC] relative overflow-hidden border-b border-slate-200/70"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 1. Centered About Us Heading & Description (At the TOP) */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-16 space-y-4">
-          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-900 text-xs font-semibold uppercase tracking-wider">
-            About Sawariya Home Care
-          </div>
-
-          <h2
-            id="about-us-heading"
-            className="text-2xl sm:text-3xl lg:text-[34px] xl:text-4xl font-serif font-light text-slate-900 tracking-tight leading-tight"
-          >
-            Compassionate Care,{' '}
-            <span className="text-blue-900 italic font-semibold font-serif">
-              Built Around Your Family.
-            </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header: Large Centered Heading & Centered Subtitle */}
+        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light text-slate-900 tracking-tight leading-tight">
+            Leadership &amp; Guidance
           </h2>
-
-          <p
-            id="about-us-description"
-            className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
-          >
-            Sawariya Home Care was established to provide dependable healthcare support and genuine companionship directly in the comfort of your home. We bridge the gap between hospital-level assistance and everyday domestic life, ensuring your loved ones receive attentive, respectful care in familiar surroundings.
+          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+            Guiding our caregivers with medical rigor, accountability, and genuine family values.
           </p>
         </div>
 
-        {/* 2. Director Profiles Area (BELOW Heading and Description) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
-          {/* Director Profile 1 — Prashant Suryavanshi */}
+        {/* Two Large Editorial Profile Cards Side-by-Side on Desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto items-stretch">
+          {/* Director 1: Prashant Suryavanshi */}
           <div
             id="director-profile-prashant"
-            className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col transition-all duration-200 hover:shadow-md hover:border-blue-200"
+            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#23439A]/40 transition-all duration-300 flex flex-col group min-h-[580px] lg:h-[610px]"
           >
-            <div className="relative w-full aspect-4/3 sm:aspect-16/11 overflow-hidden bg-slate-100">
+            {/* Upper Portion: Large Director Image (~70% visual height) */}
+            <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[420px] bg-slate-100 shrink-0 overflow-hidden">
               <Image
                 src="/images/prashant-suryavanshi.png"
-                alt="Prashant Suryavanshi — Director, Sawariya Home Care"
+                alt="Prashant Suryavanshi — Executive Director"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top group-hover:scale-103 transition-transform duration-500"
                 referrerPolicy="no-referrer"
-                sizes="(max-width: 768px) 100vw, 520px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
                 priority
               />
             </div>
 
-            <div className="p-6 sm:p-7">
-              <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
-                Executive Director
-              </span>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
+            {/* Lower Portion: Clean White Content Area (Padding 32px–36px) */}
+            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2.5 bg-white">
+              <div>
+                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#23439A] bg-[#EAF3FF] px-3 py-1 rounded-md border border-blue-100">
+                  EXECUTIVE DIRECTOR
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Prashant Suryavanshi
               </h3>
-              <p className="text-sm font-semibold text-blue-900 mt-1">
+              <p className="text-sm sm:text-base font-semibold text-[#22A06B]">
                 Director, Sawariya Home Care
               </p>
             </div>
           </div>
 
-          {/* Director Profile 2 — Madhu Suryavanshi */}
+          {/* Director 2: Madhu Suryavanshi */}
           <div
             id="director-profile-madhu"
-            className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col transition-all duration-200 hover:shadow-md hover:border-blue-200"
+            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#22A06B]/40 transition-all duration-300 flex flex-col group min-h-[580px] lg:h-[610px]"
           >
-            <div className="relative w-full aspect-4/3 sm:aspect-16/11 overflow-hidden bg-slate-100">
+            {/* Upper Portion: Large Director Image (~70% visual height) */}
+            <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[420px] bg-slate-100 shrink-0 overflow-hidden">
               <Image
                 src="/images/madhu-suryavanshi.png"
-                alt="Madhu Suryavanshi — Director, Sawariya Home Care"
+                alt="Madhu Suryavanshi — Operations & Care Director"
                 fill
-            className="object-cover object-top"
+                className="object-cover object-top group-hover:scale-103 transition-transform duration-500"
                 referrerPolicy="no-referrer"
-                sizes="(max-width: 768px) 100vw, 520px"
-                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
               />
             </div>
 
-            <div className="p-6 sm:p-7">
-              <span className="inline-block text-[11px] font-semibold tracking-wider text-blue-900 uppercase bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 mb-2.5">
-                Operations & Care Director
-              </span>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-tight">
+            {/* Lower Portion: Clean White Content Area (Padding 32px–36px) */}
+            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2.5 bg-white">
+              <div>
+                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#22A06B] bg-[#E8F7EF] px-3 py-1 rounded-md border border-emerald-100">
+                  OPERATIONS &amp; CARE DIRECTOR
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Madhu Suryavanshi
               </h3>
-              <p className="text-sm font-semibold text-blue-900 mt-1">
+              <p className="text-sm sm:text-base font-semibold text-[#23439A]">
                 Director, Sawariya Home Care
               </p>
             </div>
@@ -104,6 +97,3 @@ export function CareTeamSection({ onLearnMore }: AboutUsSectionProps) {
     </section>
   );
 }
-
-// Export AboutUsSection alias for clean semantic usage
-export { CareTeamSection as AboutUsSection };

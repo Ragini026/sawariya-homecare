@@ -53,29 +53,56 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-slate-50 border-t border-slate-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left Column: Real Contact Information & Credentials (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+    <section
+      id="contact"
+      className="py-18 sm:py-24 lg:py-28 bg-[#F7FAFC] border-t border-slate-200/80 relative overflow-hidden"
+    >
+      {/* Background Soft Gradients */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
+        <div className="absolute top-10 left-10 w-96 h-96 bg-[#E8F7EF]/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#EAF3FF]/70 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Unified Contact Information with Green Icons & Healthcare Line Art (5 cols) */}
+          <div className="lg:col-span-5 space-y-6 relative">
+            {/* Subtle Line-Art Healthcare/Home Illustration Behind Left Side */}
+            <div className="absolute -top-10 -left-10 w-80 h-80 pointer-events-none select-none opacity-40 -z-10" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" className="w-full h-full text-[#22A06B]/15">
+                <circle cx="100" cy="100" r="90" strokeWidth="1.5" strokeDasharray="4 6" />
+                <circle cx="100" cy="100" r="65" strokeWidth="1" />
+                <path d="M70 120 L100 90 L130 120" strokeWidth="2" strokeLinecap="round" />
+                <rect x="85" y="120" width="30" height="30" strokeWidth="1.5" />
+              </svg>
+            </div>
+
             <div className="space-y-3">
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-4xl font-serif font-light text-slate-900 tracking-tight leading-snug">
-                Let’s Talk About Your Care Needs.
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F7EF] border border-[#22A06B]/30 text-[#22A06B] text-xs font-bold uppercase tracking-wider shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-[#22A06B]" />
+                Get In Touch
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light text-slate-900 tracking-tight leading-tight">
+                Let’s Talk About Your{' '}
+                <span className="text-[#23439A] italic font-serif">
+                  Care Needs.
+                </span>
               </h2>
-              <p className="text-base text-slate-600 font-normal pt-1">
-                Our care advisors are available 24/7 to coordinate dependable home care for your family.
+              <p className="text-base text-slate-600 font-normal leading-relaxed">
+                Our care coordinators are available 24/7 to answer questions, discuss care plans, and match verified attendants for your loved ones in Raipur.
               </p>
             </div>
 
-            {/* Unified Contact Information Area */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-xs space-y-6">
+            {/* ONE Unified Contact Information Card with Healthcare Green Icons */}
+            <div className="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/90 shadow-xs space-y-6 relative overflow-hidden">
               {/* Address */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="w-5 h-5 text-blue-900" />
+                <div className="w-10 h-10 rounded-xl bg-[#E8F7EF] text-[#22A06B] flex items-center justify-center shrink-0 mt-0.5 border border-[#22A06B]/20">
+                  <MapPin className="w-5 h-5 text-[#22A06B]" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Address</p>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Address</p>
                   <p className="text-sm font-medium text-slate-800 leading-relaxed">
                     Near Vyanktesh Hospital, Kamal Vihar, Sector 6, Sector 8 A, Raipur, Chhattisgarh 492015
                   </p>
@@ -86,14 +113,14 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
 
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mt-0.5">
-                  <Mail className="w-5 h-5 text-blue-900" />
+                <div className="w-10 h-10 rounded-xl bg-[#E8F7EF] text-[#22A06B] flex items-center justify-center shrink-0 mt-0.5 border border-[#22A06B]/20">
+                  <Mail className="w-5 h-5 text-[#22A06B]" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Email</p>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email</p>
                   <a
                     href={`mailto:${CONTACT_INFO.email}`}
-                    className="text-sm font-semibold text-slate-900 hover:text-blue-900 transition-colors block"
+                    className="text-sm font-semibold text-slate-900 hover:text-[#23439A] transition-colors block"
                   >
                     {CONTACT_INFO.email}
                   </a>
@@ -104,17 +131,17 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
 
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mt-0.5">
-                  <Phone className="w-5 h-5 text-blue-900" />
+                <div className="w-10 h-10 rounded-xl bg-[#E8F7EF] text-[#22A06B] flex items-center justify-center shrink-0 mt-0.5 border border-[#22A06B]/20">
+                  <Phone className="w-5 h-5 text-[#22A06B]" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone</p>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Phone Support</p>
                   <div className="space-y-1">
                     {CONTACT_INFO.phones.map((phone, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <a
                           href={`tel:${phone.raw}`}
-                          className="text-base font-bold text-slate-900 hover:text-blue-900 transition-colors"
+                          className="text-base font-bold text-slate-900 hover:text-[#23439A] transition-colors"
                           id={`contact-phone-${idx}`}
                         >
                           {phone.display}
@@ -124,35 +151,53 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                   </div>
                 </div>
               </div>
+
+              <div className="border-t border-slate-100" />
+
+              {/* Hours / Availability */}
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#EAF3FF] text-[#23439A] flex items-center justify-center shrink-0 mt-0.5 border border-[#23439A]/20">
+                  <Clock className="w-5 h-5 text-[#23439A]" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Availability</p>
+                  <p className="text-sm font-bold text-slate-800">
+                    24 Hours / 7 Days a Week
+                  </p>
+                  <p className="text-xs text-[#22A06B] font-semibold">
+                    Immediate Emergency &amp; Routine Dispatch
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Premium Contact Form (7 cols) */}
+          {/* Right Column: Existing Consultation Form with Blue Primary Actions (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="bg-white p-7 sm:p-10 rounded-3xl border border-slate-200/90 shadow-md">
+            <div className="bg-white p-7 sm:p-10 rounded-2xl border border-slate-200/90 shadow-md">
               {isSubmitted ? (
                 <div className="text-center py-10 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 rounded-full bg-[#E8F7EF] text-[#22A06B] flex items-center justify-center mx-auto border border-[#22A06B]/30">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#0B2545]">Inquiry Received!</h3>
+                  <h3 className="text-2xl font-serif font-bold text-[#071A35]">Inquiry Received!</h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                     Thank you, <span className="font-bold text-slate-900">{formData.fullName}</span>.
                     Our care coordination team has received your request for{' '}
-                    <span className="font-semibold text-[#1D4ED8]">{formData.serviceRequired}</span>{' '}
+                    <span className="font-semibold text-[#23439A]">{formData.serviceRequired}</span>{' '}
                     and will call you back on{' '}
                     <span className="font-semibold text-slate-900">{formData.phone}</span> shortly.
                   </p>
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
                       href={`tel:${CONTACT_INFO.phones[0].raw}`}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#1D4ED8] hover:bg-[#1e40af] transition-colors"
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold text-white bg-[#23439A] hover:bg-[#1C367C] transition-colors"
                     >
                       Call Now for Immediate Assistance
                     </a>
                     <button
                       onClick={handleReset}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
                     >
                       Submit Another Inquiry
                     </button>
@@ -185,7 +230,7 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                         placeholder="e.g. Ramesh Patel"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 transition-all"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all"
                       />
                     </div>
 
@@ -204,7 +249,7 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                         placeholder="e.g. 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 transition-all"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all"
                       />
                     </div>
                   </div>
@@ -222,7 +267,7 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                         id="inquiry-service"
                         value={formData.serviceRequired}
                         onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 transition-all bg-white"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all bg-white"
                       >
                         {SERVICES_DATA.map((srv) => (
                           <option key={srv.id} value={srv.title}>
@@ -244,7 +289,7 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                         id="inquiry-duration"
                         value={formData.preferredDuration}
                         onChange={(e) => setFormData({ ...formData, preferredDuration: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 transition-all bg-white"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all bg-white"
                       >
                         {durationOptions.map((opt) => (
                           <option key={opt} value={opt}>
@@ -255,44 +300,68 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                     </div>
                   </div>
 
-                  {/* Message */}
+                  {/* Email (Optional) */}
                   <div>
                     <label
-                      htmlFor="inquiry-message"
+                      htmlFor="inquiry-email"
                       className="block text-xs font-bold text-slate-700 mb-1.5"
                     >
-                      Message / Specific Requirements
+                      Email Address (Optional)
                     </label>
-                    <textarea
-                      id="inquiry-message"
-                      rows={3}
-                      placeholder="Please mention any special condition, language preference, or preferred start date..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 transition-all"
+                    <input
+                      id="inquiry-email"
+                      type="email"
+                      placeholder="e.g. name@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all"
                     />
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Notes / Message */}
                   <div>
+                    <label
+                      htmlFor="inquiry-notes"
+                      className="block text-xs font-bold text-slate-700 mb-1.5"
+                    >
+                      Specific Patient Condition / Notes
+                    </label>
+                    <textarea
+                      id="inquiry-notes"
+                      rows={3}
+                      placeholder="Any specific mobility needs, medication schedules, or preferences..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button (Blue Primary Action) */}
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl font-bold text-white bg-blue-900 hover:bg-blue-800 active:scale-[0.99] transition-all duration-200 text-sm shadow-xl shadow-blue-900/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                      className="w-full py-3.5 px-6 rounded-xl font-bold text-white bg-[#23439A] hover:bg-[#1C367C] active:scale-[0.99] transition-all duration-200 shadow-md shadow-blue-900/20 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 text-sm sm:text-base"
                       id="inquiry-submit-btn"
                     >
                       {isSubmitting ? (
-                        <span>Processing Inquiry...</span>
+                        <>
+                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <span>Submitting Inquiry...</span>
+                        </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          <span>Submit Inquiry</span>
+                          <span>Request Caregiver Consultation</span>
                         </>
                       )}
                     </button>
-                    <p className="text-[11px] text-slate-400 text-center mt-2.5">
-                      Your privacy is protected. We will never share your contact details.
-                    </p>
+                  </div>
+
+                  {/* Privacy / Security Notice */}
+                  <div className="flex items-center justify-center gap-2 text-[11px] text-slate-500 pt-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#22A06B]" />
+                    <span>Your details are completely confidential. No spam guaranteed.</span>
                   </div>
                 </form>
               )}
