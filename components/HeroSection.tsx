@@ -16,11 +16,11 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
       {/* 1. Large High-Quality Indian Healthcare Photograph Covering the ENTIRE Hero Viewport */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/images/hero-eldercare.webp"
-          alt="Authentic Indian caregiver supporting an elderly patient with warmth and dignity at home"
+          src="/images/hero-homecare.jpg"
+          alt="Professional Indian home caregiver providing attentive, compassionate care to an elderly Indian patient at home"
           fill
           priority
-          className="object-cover object-[70%_center] lg:object-[80%_center] brightness-[0.88] contrast-[1.04]"
+          className="object-cover object-[70%_center] lg:object-[72%_center] brightness-[0.92] contrast-[1.02]"
           referrerPolicy="no-referrer"
           sizes="100vw"
         />

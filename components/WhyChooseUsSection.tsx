@@ -12,28 +12,28 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
   const benefits = [
     {
       title: 'Compassionate Care',
-      desc: 'Empathetic, respectful assistance prioritizing emotional comfort, personal dignity, and heartfelt warmth.',
+      desc: 'Empathetic, respectful assistance prioritizing emotional comfort and dignity.',
       icon: Heart,
       iconColor: 'text-[#22A06B]',
       bgColor: 'bg-[#22A06B]/10 border-[#22A06B]/30',
     },
     {
       title: 'Personalized Attention',
-      desc: 'Individualized care routines tailored to your family’s schedule, medical requirements, and specific home habits.',
+      desc: 'Individualized care routines tailored to your family’s needs and schedule.',
       icon: UserCheck,
       iconColor: 'text-[#2F6BFF]',
       bgColor: 'bg-[#2F6BFF]/10 border-[#2F6BFF]/30',
     },
     {
       title: 'Reliable Support',
-      desc: 'Thoroughly screened, background-checked nursing attendants and caregivers with 24/7 coordinator backup.',
+      desc: 'Thoroughly screened caregivers with dependable 24/7 coordinator support.',
       icon: ShieldCheck,
       iconColor: 'text-[#22A06B]',
       bgColor: 'bg-[#22A06B]/10 border-[#22A06B]/30',
     },
     {
       title: 'Family-First Approach',
-      desc: 'Punctual attendance, transparent daily communication with family members, and zero hidden costs.',
+      desc: 'Punctual care, transparent communication, and no hidden costs.',
       icon: Home,
       iconColor: 'text-[#2F6BFF]',
       bgColor: 'bg-[#2F6BFF]/10 border-[#2F6BFF]/30',
@@ -120,8 +120,8 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
                   Personal Touch.
                 </span>
               </h2>
-              <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-                Dedicated, compassionate, and dependable home-care support designed to bring peace of mind, safety, and dignity to your loved ones in Raipur.
+              <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-lg">
+                Dedicated, compassionate home-care support bringing peace of mind, safety, and dignity to your loved ones.
               </p>
             </div>
 

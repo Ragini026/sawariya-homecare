@@ -57,7 +57,7 @@ export default function HomePage() {
         {/* 3. Services Section */}
         <ServicesSection
           onSelectService={(service) => setActiveDetailService(service)}
-          onBookService={(title) => handleOpenBooking(title)}
+          onBookService={() => scrollToContact()}
         />
 
         {/* 4. How It Works Section */}

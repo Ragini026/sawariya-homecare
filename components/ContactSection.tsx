@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Phone, Mail, Clock, MapPin, CheckCircle2, Send, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle2, Send, ShieldCheck } from 'lucide-react';
 import { CONTACT_INFO, SERVICES_DATA } from '@/lib/data';
 
 interface ContactSectionProps {
@@ -90,7 +90,7 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                 </span>
               </h2>
               <p className="text-base text-slate-600 font-normal leading-relaxed">
-                Our care coordinators are available 24/7 to answer questions, discuss care plans, and match verified attendants for your loved ones in Raipur.
+                Our care coordinators are available 24/7 to answer questions and match verified attendants for your loved ones.
               </p>
             </div>
 
@@ -149,24 +149,6 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                       </div>
                     ))}
                   </div>
-                </div>
-              </div>
-
-              <div className="border-t border-slate-100" />
-
-              {/* Hours / Availability */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#EAF3FF] text-[#23439A] flex items-center justify-center shrink-0 mt-0.5 border border-[#23439A]/20">
-                  <Clock className="w-5 h-5 text-[#23439A]" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Availability</p>
-                  <p className="text-sm font-bold text-slate-800">
-                    24 Hours / 7 Days a Week
-                  </p>
-                  <p className="text-xs text-[#22A06B] font-semibold">
-                    Immediate Emergency &amp; Routine Dispatch
-                  </p>
                 </div>
               </div>
             </div>
@@ -298,24 +280,6 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
                         ))}
                       </select>
                     </div>
-                  </div>
-
-                  {/* Email (Optional) */}
-                  <div>
-                    <label
-                      htmlFor="inquiry-email"
-                      className="block text-xs font-bold text-slate-700 mb-1.5"
-                    >
-                      Email Address (Optional)
-                    </label>
-                    <input
-                      id="inquiry-email"
-                      type="email"
-                      placeholder="e.g. name@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#23439A] focus:ring-2 focus:ring-blue-100 transition-all"
-                    />
                   </div>
 
                   {/* Notes / Message */}

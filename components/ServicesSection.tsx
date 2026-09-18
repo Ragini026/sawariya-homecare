@@ -164,10 +164,25 @@ export function ServicesSection({ onSelectService, onBookService }: ServicesSect
                 </div>
 
                 {/* Interactive Action Link */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#4CAF7D] group-hover:text-emerald-300">
-                  <span>View Details &amp; Plan</span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </div>
+                <button
+                  type="button"
+                  id={`book-now-${service.id}`}
+                  className="w-full pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#4CAF7D] hover:text-emerald-300 group-hover:text-emerald-300 transition-colors cursor-pointer text-left focus:outline-none"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const el = document.getElementById('contact');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    if (onBookService) {
+                      onBookService(service.title);
+                    }
+                  }}
+                  aria-label={`Book Now for ${service.title}`}
+                >
+                  <span>Book Now</span>
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform shrink-0" />
+                </button>
               </div>
             </div>
           ))}
