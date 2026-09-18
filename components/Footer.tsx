@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { SawariyaLogo } from './SawariyaLogo';
-import { WhatsAppIcon } from './WhatsAppIcon';
 import { CONTACT_INFO } from '@/lib/data';
-import { Instagram, Phone, Mail, X } from 'lucide-react';
+import { Instagram, Facebook, X } from 'lucide-react';
 
 type LegalModalType = 'privacy' | 'terms' | 'cookie' | 'disclaimer' | null;
 
@@ -30,32 +29,18 @@ export function Footer() {
 
   const socialLinks = [
     {
-      name: 'WhatsApp',
-      href: CONTACT_INFO.whatsapp,
-      icon: <WhatsAppIcon className="w-4 h-4 fill-current" />,
-      id: 'footer-social-whatsapp',
-      hoverClass: 'hover:bg-[#22A06B] hover:border-[#22A06B] hover:text-white',
-    },
-    {
       name: 'Instagram',
-      href: CONTACT_INFO.instagram.url,
+      href: CONTACT_INFO.instagram?.url || 'https://www.instagram.com/sawariya_home_care/',
       icon: <Instagram className="w-4 h-4" />,
       id: 'footer-social-instagram',
       hoverClass: 'hover:bg-[#E1306C] hover:border-[#E1306C] hover:text-white',
     },
     {
-      name: 'Phone Support',
-      href: `tel:${CONTACT_INFO.phones[0].raw}`,
-      icon: <Phone className="w-4 h-4" />,
-      id: 'footer-social-phone',
-      hoverClass: 'hover:bg-[#2F6BFF] hover:border-[#2F6BFF] hover:text-white',
-    },
-    {
-      name: 'Email Inquiries',
-      href: `mailto:${CONTACT_INFO.email}`,
-      icon: <Mail className="w-4 h-4" />,
-      id: 'footer-social-email',
-      hoverClass: 'hover:bg-[#4CAF7D] hover:border-[#4CAF7D] hover:text-white',
+      name: 'Facebook',
+      href: 'https://www.facebook.com/sawariyahomecare',
+      icon: <Facebook className="w-4 h-4" />,
+      id: 'footer-social-facebook',
+      hoverClass: 'hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white',
     },
   ];
 

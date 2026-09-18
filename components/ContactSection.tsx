@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, CheckCircle2, Send, ShieldCheck } from 'lucide-react';
 import { CONTACT_INFO, SERVICES_DATA } from '@/lib/data';
 
@@ -9,6 +9,7 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ initialService = '' }: ContactSectionProps) {
+  const [prevInitialService, setPrevInitialService] = useState(initialService);
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -17,6 +18,22 @@ export function ContactSection({ initialService = '' }: ContactSectionProps) {
     preferredDuration: '12-Hour Day Shift',
     message: '',
   });
+
+  if (initialService !== prevInitialService) {
+    setPrevInitialService(initialService);
+    if (initialService) {
+      const matched = SERVICES_DATA.find(
+        (s) =>
+          s.title.toLowerCase() === initialService.toLowerCase() ||
+          s.title.toLowerCase().includes(initialService.toLowerCase()) ||
+          initialService.toLowerCase().includes(s.title.toLowerCase())
+      );
+      setFormData((prev) => ({
+        ...prev,
+        serviceRequired: matched ? matched.title : initialService,
+      }));
+    }
+  }
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

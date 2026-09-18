@@ -1,13 +1,39 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
 
 interface HeroSectionProps {
-  onOpenBooking?: () => void;
+  onOpenBooking?: (serviceName?: string) => void;
 }
 
 export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
+  const [selectedCare, setSelectedCare] = useState('');
+
+  const handleSelectService = (service: string) => {
+    setSelectedCare(service);
+    if (service) {
+      const el = document.getElementById('contact');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (onOpenBooking) {
+        onOpenBooking(service);
+      }
+    }
+  };
+
+  const handleBookNow = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (onOpenBooking) {
+      onOpenBooking(selectedCare || undefined);
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -100,33 +126,45 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
             </p>
           </div>
 
-          {/* Core Statistics / Trust Figures (NO CTA button as strictly requested) */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-white/15">
-            <div className="space-y-1">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
-                15k+
-              </div>
-              <div className="text-xs text-slate-300 font-medium">
-                Families Served
-              </div>
-            </div>
+          {/* Compact Hero Booking Control: [ What care do you need? ▼ ] [ Book Now ] */}
+          <div className="pt-2">
+            <div className="inline-flex items-center bg-white rounded-full p-1.5 sm:p-2 shadow-2xl border border-white/20 max-w-full sm:max-w-lg w-full">
+              {/* Dropdown on the left — Entire container is clickable */}
+              <div className="relative flex-1 min-w-0 flex items-center justify-between pl-3 sm:pl-4 pr-3 sm:pr-4 h-full min-h-[44px] cursor-pointer group">
+                <span className={`text-xs sm:text-sm font-medium truncate pr-2 pointer-events-none select-none ${selectedCare ? 'text-slate-900 font-semibold' : 'text-slate-600'}`}>
+                  {selectedCare || 'What care do you need?'}
+                </span>
+                <ChevronDown className="w-4 h-4 text-slate-500 shrink-0 pointer-events-none group-hover:text-slate-700 transition-colors" />
 
-            <div className="space-y-1 border-x border-white/15 px-3 sm:px-6">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-[#2F6BFF] tracking-tight">
-                24/7
+                <select
+                  value={selectedCare}
+                  onChange={(e) => handleSelectService(e.target.value)}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 text-slate-900 text-sm"
+                  id="hero-care-dropdown"
+                  aria-label="What care do you need?"
+                >
+                  <option value="" disabled className="text-slate-500">What care do you need?</option>
+                  <option value="Senior Citizen / Elder Care" className="text-slate-900">Senior Citizen / Elder Care</option>
+                  <option value="Newborn & Baby Care" className="text-slate-900">Newborn & Baby Care</option>
+                  <option value="Babysitting" className="text-slate-900">Babysitting</option>
+                  <option value="Home Nursing" className="text-slate-900">Home Nursing</option>
+                  <option value="Physiotherapy at Home" className="text-slate-900">Physiotherapy at Home</option>
+                  <option value="Medical Equipment Support" className="text-slate-900">Medical Equipment Support</option>
+                </select>
               </div>
-              <div className="text-xs text-slate-300 font-medium">
-                Dedicated Support
-              </div>
-            </div>
 
-            <div className="space-y-1">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-[#4CAF7D] tracking-tight">
-                100%
-              </div>
-              <div className="text-xs text-slate-300 font-medium">
-                Care Focused
-              </div>
+              {/* Vertical Divider */}
+              <div className="h-6 sm:h-7 w-px bg-slate-200 shrink-0 mx-1" aria-hidden="true" />
+
+              {/* Blue Book Now button */}
+              <button
+                type="button"
+                onClick={handleBookNow}
+                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2F5CC8] hover:bg-[#2449A3] active:scale-[0.98] shadow-md shadow-[#2F5CC8]/25 transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap"
+                id="hero-book-now-btn"
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </div>

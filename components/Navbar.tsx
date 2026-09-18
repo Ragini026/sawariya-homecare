@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SawariyaLogo } from './SawariyaLogo';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/data';
 
 interface NavbarProps {
   onOpenBooking?: () => void;
@@ -105,11 +106,21 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             ))}
           </div>
 
-          {/* Right Action CTA: Book a Caregiver (Healthcare Green) */}
-          <div className="hidden sm:flex items-center">
+          {/* Right Action CTA: Phone Contact & Book a Caregiver (Healthcare Green) */}
+          <div className="hidden sm:flex items-center gap-4 lg:gap-5">
+            <a
+              href={`tel:${CONTACT_INFO.phones[0].raw}`}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-200 hover:text-white transition-colors py-1.5 focus:outline-hidden"
+              id="navbar-phone-contact"
+              title="Call Sawariya Home Care"
+            >
+              <Phone className="w-4 h-4 text-[#4CAF7D] shrink-0" />
+              <span>{CONTACT_INFO.phones[0].display}</span>
+            </a>
+
             <button
               onClick={handleBookCaregiverClick}
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer shrink-0"
               id="navbar-book-caregiver-btn"
             >
               Book a Caregiver

@@ -15,11 +15,11 @@ import {
 import { SERVICES_DATA, ServiceItem } from '@/lib/data';
 
 interface ServicesSectionProps {
-  onSelectService: (service: ServiceItem) => void;
+  onSelectService?: (service: ServiceItem) => void;
   onBookService?: (serviceName: string) => void;
 }
 
-export function ServicesSection({ onSelectService, onBookService }: ServicesSectionProps) {
+export function ServicesSection({ onBookService }: ServicesSectionProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'HeartHandshake':
@@ -107,9 +107,8 @@ export function ServicesSection({ onSelectService, onBookService }: ServicesSect
           {SERVICES_DATA.map((service) => (
             <div
               key={service.id}
-              className="group bg-[#0B2545] rounded-2xl overflow-hidden border border-white/10 hover:border-[#22A06B]/60 hover:bg-[#0E2C52] shadow-xl hover:shadow-2xl hover:shadow-emerald-950/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer"
+              className="group bg-[#0B2545] rounded-2xl overflow-hidden border border-white/10 hover:border-[#22A06B]/60 hover:bg-[#0E2C52] shadow-xl hover:shadow-2xl hover:shadow-emerald-950/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col"
               id={`service-card-${service.id}`}
-              onClick={() => onSelectService(service)}
             >
               {/* Service Card Image Banner */}
               <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-900">
@@ -164,25 +163,27 @@ export function ServicesSection({ onSelectService, onBookService }: ServicesSect
                 </div>
 
                 {/* Interactive Action Link */}
-                <button
-                  type="button"
-                  id={`book-now-${service.id}`}
-                  className="w-full pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#4CAF7D] hover:text-emerald-300 group-hover:text-emerald-300 transition-colors cursor-pointer text-left focus:outline-none"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    const el = document.getElementById('contact');
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    if (onBookService) {
-                      onBookService(service.title);
-                    }
-                  }}
-                  aria-label={`Book Now for ${service.title}`}
-                >
-                  <span>Book Now</span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform shrink-0" />
-                </button>
+                <div className="pt-3 border-t border-white/10 flex justify-center">
+                  <button
+                    type="button"
+                    id={`book-now-${service.id}`}
+                    className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#4CAF7D] hover:text-emerald-300 hover:bg-white/[0.05] transition-all duration-200 cursor-pointer text-center focus:outline-none"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const el = document.getElementById('contact');
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                      if (onBookService) {
+                        onBookService(service.title);
+                      }
+                    }}
+                    aria-label={`Book Now for ${service.title}`}
+                  >
+                    <span>Book Now</span>
+                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform shrink-0" />
+                  </button>
+                </div>
               </div>
             </div>
           ))}

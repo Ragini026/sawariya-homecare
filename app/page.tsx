@@ -12,15 +12,13 @@ import { FaqSection } from '@/components/FaqSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import { BookingModal } from '@/components/BookingModal';
-import { ServiceDetailModal } from '@/components/ServiceDetailModal';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
-import { SERVICES_DATA, ServiceItem, CONTACT_INFO } from '@/lib/data';
+import { CONTACT_INFO } from '@/lib/data';
 import { Phone } from 'lucide-react';
 
 export default function HomePage() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selectedServiceTitle, setSelectedServiceTitle] = useState<string | undefined>(undefined);
-  const [activeDetailService, setActiveDetailService] = useState<ServiceItem | null>(null);
 
   const handleOpenBooking = (serviceTitle?: string) => {
     setSelectedServiceTitle(serviceTitle);
@@ -32,7 +30,10 @@ export default function HomePage() {
     setSelectedServiceTitle(undefined);
   };
 
-  const scrollToContact = () => {
+  const scrollToContact = (serviceTitle?: string) => {
+    if (serviceTitle) {
+      setSelectedServiceTitle(serviceTitle);
+    }
     const el = document.querySelector('#contact');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -45,26 +46,25 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-blue-100 selection:text-[#0B2545]">
       {/* Sticky Header Navigation */}
-      <Navbar onOpenBooking={scrollToContact} />
+      <Navbar onOpenBooking={() => scrollToContact()} />
 
       <main className="flex-1">
         {/* 1. Hero Section */}
-        <HeroSection onOpenBooking={scrollToContact} />
+        <HeroSection onOpenBooking={(service) => scrollToContact(service)} />
 
         {/* 2. About Us Section */}
-        <AboutUsSection onLearnMore={scrollToContact} />
+        <AboutUsSection onLearnMore={() => scrollToContact()} />
 
         {/* 3. Services Section */}
         <ServicesSection
-          onSelectService={(service) => setActiveDetailService(service)}
-          onBookService={() => scrollToContact()}
+          onBookService={(serviceTitle) => scrollToContact(serviceTitle)}
         />
 
         {/* 4. How It Works Section */}
         <HowItWorksSection />
 
         {/* 5. Why Us Section */}
-        <WhyChooseUsSection onOpenBooking={scrollToContact} />
+        <WhyChooseUsSection onOpenBooking={() => scrollToContact()} />
 
         {/* 6. Testimonials Section */}
         <TestimonialsSection />
@@ -109,13 +109,6 @@ export default function HomePage() {
         isOpen={bookingModalOpen}
         onClose={handleCloseBooking}
         defaultService={selectedServiceTitle}
-      />
-
-      {/* Service In-Depth Details Modal */}
-      <ServiceDetailModal
-        service={activeDetailService}
-        onClose={() => setActiveDetailService(null)}
-        onBookNow={(serviceTitle) => handleOpenBooking(serviceTitle)}
       />
     </div>
   );
