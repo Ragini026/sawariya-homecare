@@ -18,25 +18,25 @@ export function SawariyaLogo({
   const isDark = variant === 'dark';
 
   const iconSizes = {
-    sm: 'w-8 h-8',
-    md: 'w-10 h-10',
-    lg: 'w-14 h-14',
+    sm: 'w-6 h-6 sm:w-8 sm:h-8',
+    md: 'w-7 h-7 sm:w-10 sm:h-10',
+    lg: 'w-10 h-10 sm:w-14 sm:h-14',
   };
 
   const titleSizes = {
-    sm: 'text-lg',
-    md: 'text-xl sm:text-2xl',
-    lg: 'text-2xl sm:text-3xl',
+    sm: 'text-sm sm:text-lg',
+    md: 'text-base sm:text-2xl',
+    lg: 'text-xl sm:text-3xl',
   };
 
   const subtitleSizes = {
-    sm: 'text-[9px] tracking-[0.2em]',
-    md: 'text-[11px] tracking-[0.22em]',
-    lg: 'text-[13px] tracking-[0.25em]',
+    sm: 'text-[7.5px] sm:text-[9px] tracking-[0.18em]',
+    md: 'text-[8px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em]',
+    lg: 'text-[10px] sm:text-[13px] tracking-[0.25em]',
   };
 
   return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 select-none ${className}`} id="sawariya-brand-logo">
+    <div className={`flex items-center gap-2 sm:gap-3 select-none ${className}`} id="sawariya-brand-logo">
       {/* Peacock Feather Emblem (Mor Pankh) inspired by Sawariya branding */}
       <div className={`relative flex-shrink-0 ${iconSizes[size]}`} aria-hidden="true">
         <svg

@@ -73,8 +73,8 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#071A35]/95 backdrop-blur-md shadow-xl border-b border-white/10 py-3'
-            : 'bg-[#071A35]/40 backdrop-blur-xs py-4 border-b border-white/5'
+            ? 'bg-[#071A35]/95 backdrop-blur-md shadow-xl border-b border-white/10 py-2.5 sm:py-3'
+            : 'bg-[#071A35]/40 backdrop-blur-xs py-3 sm:py-4 border-b border-white/5'
         }`}
         id="main-header"
       >
@@ -106,11 +106,11 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             ))}
           </div>
 
-          {/* Right Action CTA: Phone Contact & Book a Caregiver (Healthcare Green) */}
-          <div className="hidden sm:flex items-center gap-4 lg:gap-5">
+          {/* Right Action CTA (Desktop): Phone Contact & Book a Caregiver */}
+          <div className="hidden lg:flex items-center gap-5">
             <a
               href={`tel:${CONTACT_INFO.phones[0].raw}`}
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-200 hover:text-white transition-colors py-1.5 focus:outline-hidden"
+              className="inline-flex items-center gap-2 text-sm font-medium text-slate-200 hover:text-white transition-colors py-1.5 focus:outline-hidden"
               id="navbar-phone-contact"
               title="Call Sawariya Home Care"
             >
@@ -120,23 +120,35 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
 
             <button
               onClick={handleBookCaregiverClick}
-              className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer shrink-0"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer shrink-0"
               id="navbar-book-caregiver-btn"
             >
               Book a Caregiver
             </button>
           </div>
 
-          {/* Mobile Menu Hamburger Button */}
-          <div className="flex items-center lg:hidden">
+          {/* Right Area (Mobile): Spacious Phone Contact & Hamburger Button */}
+          <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
+            <a
+              href={`tel:${CONTACT_INFO.phones[0].raw}`}
+              className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 backdrop-blur-xs transition-colors focus:outline-hidden"
+              id="mobile-header-phone-contact"
+              title="Call Sawariya Home Care"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#4CAF7D] shrink-0" />
+              <span className="text-[10.5px] sm:text-xs font-semibold text-slate-100 whitespace-nowrap tracking-tight">
+                {CONTACT_INFO.phones[0].display}
+              </span>
+            </a>
+
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-hidden cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-lg text-white hover:bg-white/10 active:bg-white/15 focus:outline-hidden cursor-pointer flex items-center justify-center"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
               id="mobile-menu-toggle-btn"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </nav>

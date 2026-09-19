@@ -13,15 +13,6 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
 
   const handleSelectService = (service: string) => {
     setSelectedCare(service);
-    if (service) {
-      const el = document.getElementById('contact');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      if (onOpenBooking) {
-        onOpenBooking(service);
-      }
-    }
   };
 
   const handleBookNow = () => {

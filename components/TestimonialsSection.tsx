@@ -15,19 +15,14 @@ function TestimonialCard({ item }: { item: (typeof TESTIMONIALS_DATA)[number] })
   return (
     <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#22A06B]/40 transition-all duration-300 relative flex flex-col justify-between overflow-hidden h-full group">
       <div className="relative z-10 space-y-4">
-        {/* Star Rating, Verified Badge & Small Quote Icon */}
+        {/* Star Rating & Small Quote Icon */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1 text-[#F4B942]">
             {[...Array(item.rating || 5)].map((_, starI) => (
               <Star key={starI} className="w-4 h-4 fill-[#F4B942]" />
             ))}
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-[#22A06B] uppercase tracking-wider bg-[#E8F7EF] px-2.5 py-0.5 rounded-full border border-emerald-100">
-              Verified Care
-            </span>
-            <Quote className="w-3.5 h-3.5 text-[#23439A]/40 fill-[#23439A]/10 shrink-0" />
-          </div>
+          <Quote className="w-3.5 h-3.5 text-[#23439A]/40 fill-[#23439A]/10 shrink-0" />
         </div>
 
         {/* Testimonial Quote */}
