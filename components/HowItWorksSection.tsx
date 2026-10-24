@@ -1,12 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  StepNeedsIllustration,
-  StepMatchingIllustration,
-  StepCareInHomeIllustration,
-} from './HealthcareIllustrations';
-
+import Image from 'next/image';
 export function HowItWorksSection() {
   const steps = [
     {
@@ -14,7 +9,18 @@ export function HowItWorksSection() {
       title: 'Tell Us Your Needs',
       description:
         'Share your family’s specific care requirements, routine schedules, and any medical considerations through a quick consultation call.',
-      illustration: <StepNeedsIllustration className="w-full h-40 max-w-[200px] mx-auto" />,
+      illustration: (
+        <div className="relative w-full max-w-[240px] h-[180px] mx-auto">
+          <Image
+            src="/assets/aistudio/Friendly_Virtual_Care_Consultation_5d2ab503.png"
+            alt="Friendly Virtual Care Consultation"
+            fill
+            className="object-contain"
+            sizes="(max-width: 640px) 220px, 240px"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      ),
       highlight: 'Free Care Assessment',
     },
     {
@@ -22,7 +28,18 @@ export function HowItWorksSection() {
       title: 'We Find the Right Care',
       description:
         'We match you with a verified, experienced caregiver, nurse, or physiotherapist whose skills and temperament best fit your loved one.',
-      illustration: <StepMatchingIllustration className="w-full h-40 max-w-[200px] mx-auto" />,
+      illustration: (
+        <div className="relative w-full max-w-[240px] h-[180px] mx-auto">
+          <Image
+            src="/assets/aistudio/Verified_Caregiver_Credentials_Profile_e2e8ecca.png"
+            alt="Verified Caregiver Credentials and Profile"
+            fill
+            className="object-contain"
+            sizes="(max-width: 640px) 220px, 240px"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      ),
       highlight: 'Police & Credential Verified',
     },
     {
@@ -30,7 +47,18 @@ export function HowItWorksSection() {
       title: 'Care Begins at Home',
       description:
         'Your dedicated caregiver arrives on schedule. Our clinical team maintains ongoing check-ins to ensure complete comfort and peace of mind.',
-      illustration: <StepCareInHomeIllustration className="w-full h-40 max-w-[200px] mx-auto" />,
+      illustration: (
+        <div className="relative w-full max-w-[240px] h-[180px] mx-auto">
+          <Image
+            src="/assets/aistudio/Caring_Home_Visit_with_Elderly_Woman_f33a681f.png"
+            alt="Caring Home Visit with Elderly Woman"
+            fill
+            className="object-contain"
+            sizes="(max-width: 640px) 220px, 240px"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      ),
       highlight: 'Continuous Care Supervision',
     },
   ];

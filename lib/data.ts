@@ -17,8 +17,13 @@ export const CONTACT_INFO = {
   tagline: 'Care That Brings Comfort Home',
   heroTrust: 'Care that feels like family.',
   phones: [
-    { display: '+91 62659 01231', raw: '+916265901231', isPrimary: true },
+    { display: '+91 79702 58440', raw: '+917970258440', isPrimary: true },
+    { display: '+91 62659 01231', raw: '+916265901231' },
   ],
+  navbarPhone: {
+    display: '+91 79702 58440',
+    raw: '+917970258440',
+  },
   email: 'sawariyahomecare@gmail.com',
   instagram: {
     handle: '@sawariya_home_care',
@@ -36,7 +41,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Senior Citizen / Elder Care',
     shortDesc: 'Compassionate support for seniors with everyday assistance, companionship and personal care in the comfort of home.',
     fullDesc: 'Ageing in familiar surroundings gives seniors emotional security and dignified independence. Our trained home attendants assist with daily routines, medication reminders, wholesome meal assistance, mobility support, and heartwarming companionship, relieving family stress and fostering happiness.',
-    image: '/images/senior-care.webp',
+    image: '/assets/aistudio/Compassionate_Elder_Care_Connection_19fddf03.png',
     iconName: 'HeartHandshake',
     category: 'Elderly Support',
     features: [
@@ -58,7 +63,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Newborn & Baby Care',
     shortDesc: 'Gentle and attentive support for newborns and babies, helping parents feel more confident and supported at home.',
     fullDesc: 'Welcoming a newborn is a wondrous yet demanding milestone. Our specialized baby care assistants provide dedicated support for mother and child, focusing on baby massage, sponge bath, safe feeding posture, diaper care, and night comfort routines so mothers can recuperate with peace of mind.',
-    image: '/images/baby-care.webp',
+    image: '/assets/aistudio/Warm_Caregiver_Embracing_Smiling_Baby_2e67393f.png',
     iconName: 'Baby',
     category: 'Maternal & Infant',
     features: [
@@ -80,7 +85,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Babysitting',
     shortDesc: 'Trusted childcare and supervision for families who need dependable support for their little ones.',
     fullDesc: 'Finding reliable, patient, and caring supervision for growing children is essential for modern busy families. Our babysitters engage toddlers and youngsters with wholesome offline activities, story time, nutritious meal assistance, and safe playtime supervision.',
-    image: '/images/babysitting.webp',
+    image: '/assets/aistudio/Joyful_Family_Caregiving_Moment_6fb3b2f3.png',
     iconName: 'Smile',
     category: 'Childcare',
     features: [
@@ -102,7 +107,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Home Nursing',
     shortDesc: 'Professional nursing support delivered in the comfort and familiarity of home.',
     fullDesc: 'Clinical recovery is often faster and far less stressful in a homely atmosphere. Our qualified nursing staff provides doctor-prescribed nursing interventions, including post-operative wound dressing, catheter management, IV infusion support, injections, and comprehensive vital sign monitoring.',
-    image: '/images/home-nursing.webp',
+    image: '/assets/aistudio/Compassionate_Home_Nursing_Support_0b30d665.png',
     iconName: 'Activity',
     category: 'Clinical Care',
     features: [
@@ -121,23 +126,23 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'physiotherapy',
     number: '05',
-    title: 'Physiotherapy at Home',
-    shortDesc: 'Convenient physiotherapy support at home to help individuals continue their recovery and mobility journey.',
-    fullDesc: 'Traveling to rehabilitation clinics can be exhausting and painful for recovering patients. Our certified physiotherapists bring specialized equipment and targeted exercise protocols directly to your home for stroke rehabilitation, orthopedic surgery recovery, arthritis mobility, and neurological conditioning.',
-    image: '/images/physiotherapy.webp',
+    title: 'Patient Care & Caretaker',
+    shortDesc: 'Dedicated bedside patient care and experienced caretakers providing compassionate support and daily assistance at home.',
+    fullDesc: 'Recovering patients and individuals needing ongoing care require dedicated, compassionate assistance. Our qualified male and female patient caretakers assist with hygiene, mobility, feeding, medication scheduling, and attentive bedside monitoring to ensure comfort and speedy recovery at home.',
+    image: '/assets/aistudio/Warm_Caregiver_Helping_Elderly_Man_Rise_8e3fcd10.png',
     iconName: 'Accessibility',
-    category: 'Rehabilitation',
+    category: 'Patient Support',
     features: [
-      'Post-fracture & joint replacement rehabilitation',
-      'Stroke & neuro-muscular movement retraining',
-      'Geriatric balance training & fall prevention',
-      'Chronic back, neck & arthritis pain relief therapies',
+      'Dedicated bedside care & daily hygiene assistance',
+      'Assisted mobility, feeding & routine medication intake',
+      'Post-operative recovery & hospital discharge support',
+      'Trained male & female caretakers for 12h or 24h shifts',
     ],
-    durationOptions: ['Per-Session Home Visits', '10-Day Intensive Package', 'Monthly Wellness Protocol'],
+    durationOptions: ['12-Hour Day Shift', '12-Hour Night Shift', '24-Hour Live-in Caretaker', 'Custom Schedule'],
     keyBenefits: [
-      'Zero commute stress for injured or elderly patients',
-      'Exercises customized to home furniture & actual living space',
-      'Measurable weekly progress assessments',
+      'Compassionate, dedicated one-on-one attention',
+      'Comfortable recovery in familiar home surroundings',
+      'Relief and peace of mind for family members',
     ],
   },
   {

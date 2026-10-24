@@ -116,21 +116,18 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                   src={service.image}
                   alt={service.title}
                   fill
+                  style={
+                    service.id === 'babysitting'
+                      ? { objectPosition: 'center 38%' }
+                      : service.id === 'home-nursing' || service.id === 'physiotherapy'
+                      ? { objectPosition: 'center 20%' }
+                      : undefined
+                  }
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-95"
                   referrerPolicy="no-referrer"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-transparent to-black/30" />
-
-                {/* Service Category Tag */}
-                <div className="absolute top-3 right-3 bg-[#071A35]/90 backdrop-blur-xs text-[#4CAF7D] text-[11px] font-bold px-3 py-1 rounded-full border border-white/10 shadow-sm">
-                  {service.category}
-                </div>
-
-                {/* Service Number Badge */}
-                <div className="absolute top-3 left-3 bg-white/15 backdrop-blur-xs text-white text-xs font-serif font-bold px-2.5 py-1 rounded-md border border-white/20">
-                  {service.number}
-                </div>
               </div>
 
               {/* Card Content Surface */}
@@ -162,27 +159,21 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                   </div>
                 </div>
 
-                {/* Interactive Action Link */}
+                {/* Interactive Action Link directly to WhatsApp */}
                 <div className="pt-3 border-t border-white/10 flex justify-center">
-                  <button
-                    type="button"
+                  <a
+                    href={`https://wa.me/917970258440?text=${encodeURIComponent(
+                      `Hello Sawariya Home Care, I am interested in your ${service.title} service. Please share the details and availability.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     id={`book-now-${service.id}`}
                     className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#4CAF7D] hover:text-emerald-300 hover:bg-white/[0.05] transition-all duration-200 cursor-pointer text-center focus:outline-none"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      const el = document.getElementById('contact');
-                      if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                      if (onBookService) {
-                        onBookService(service.title);
-                      }
-                    }}
-                    aria-label={`Book Now for ${service.title}`}
+                    aria-label={`Book Now for ${service.title} on WhatsApp`}
                   >
                     <span>Book Now</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform shrink-0" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { SawariyaLogo } from './SawariyaLogo';
 import { CONTACT_INFO } from '@/lib/data';
-import { Instagram, Facebook, X } from 'lucide-react';
+import { Instagram, Facebook, X, MapPin, Mail, Phone } from 'lucide-react';
 
 type LegalModalType = 'privacy' | 'terms' | 'cookie' | 'disclaimer' | null;
 
@@ -85,35 +85,111 @@ export function Footer() {
       className="bg-[#071A35] text-slate-300 pt-16 pb-12 border-t border-white/10 relative"
       id="main-footer"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top / Main Footer Area: Centered Logo, Description, Social Media */}
-        <div className="flex flex-col items-center text-center space-y-6">
-          {/* 1. Centered Sawariya Home Care Logo */}
-          <div className="flex justify-center">
-            <SawariyaLogo variant="dark" size="md" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Footer Row: Left = Brand Column, Right = Contact Us Column */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-start">
+          {/* Left Column: Brand Logo, Description, Social Icons */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-5 max-w-xl">
+            <div className="flex justify-start">
+              <SawariyaLogo variant="dark" size="md" />
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed text-left">
+              Compassionate, dependable home-care support for seniors, newborns, and recovering patients across Raipur. Bringing peace of mind and dignity right to your doorstep.
+            </p>
+
+            <div className="flex items-center justify-start gap-3.5 pt-1">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={`w-10 h-10 rounded-full bg-white/[0.06] border border-white/10 text-slate-300 flex items-center justify-center transition-all duration-200 hover:scale-105 ${item.hoverClass}`}
+                  aria-label={item.name}
+                  title={item.name}
+                  id={item.id}
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* 2. Short Brand Description / Approved Tagline */}
-          <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl mx-auto">
-            Compassionate, dependable home-care support for seniors, newborns, and recovering patients across Raipur. Bringing peace of mind and dignity right to your doorstep.
-          </p>
+          {/* Right Column: Contact Us Section */}
+          <div className="lg:col-span-5 flex flex-col items-start space-y-4 pt-2 lg:pt-0 w-full max-w-md lg:ml-auto">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#22A06B]" />
+              <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
+                Contact Us
+              </h3>
+            </div>
 
-          {/* 3. Centered Circular Social Media Icons */}
-          <div className="flex items-center justify-center gap-3.5 pt-2">
-            {socialLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`w-10 h-10 rounded-full bg-white/[0.06] border border-white/10 text-slate-300 flex items-center justify-center transition-all duration-200 hover:scale-105 ${item.hoverClass}`}
-                aria-label={item.name}
-                title={item.name}
-                id={item.id}
-              >
-                {item.icon}
-              </a>
-            ))}
+            <div className="space-y-4 w-full">
+              {/* Address */}
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">
+                    Address
+                  </span>
+                  <a
+                    href="https://www.google.com/maps/dir//SAWARIYA+HOME+CARE,+near+Vyanktesh+Hospital,+Kamal+Vihar,+Sector+6,+Sector+8+A,+Raipur,+Chhattisgarh+492015/@22.3413479,82.551046,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a28dd4b71116313:0xf940fd81204e7ac6!2m2!1d81.6633505!2d21.1998868?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-200 hover:text-emerald-300 transition-colors leading-relaxed block"
+                    id="footer-address-link"
+                    title="Open location in Google Maps"
+                  >
+                    Near Vyanktesh Hospital, Kamal Vihar, Sector 6, Sector 8 A, Raipur, Chhattisgarh 492015
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">
+                    Email
+                  </span>
+                  <a
+                    href="mailto:sawariyahomecare@gmail.com"
+                    className="text-slate-200 hover:text-emerald-300 transition-colors font-medium"
+                    id="footer-email-link"
+                  >
+                    sawariyahomecare@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">
+                    Phone
+                  </span>
+                  <div className="flex flex-wrap items-center gap-x-2 text-slate-200 font-medium">
+                    <a
+                      href="tel:6265901231"
+                      className="hover:text-emerald-300 transition-colors"
+                      id="footer-phone-1"
+                    >
+                      6265901231
+                    </a>
+                    <span className="text-slate-500 select-none">|</span>
+                    <a
+                      href="tel:+917970258440"
+                      className="hover:text-emerald-300 transition-colors"
+                      id="footer-phone-2"
+                    >
+                      +91 79702 58440
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

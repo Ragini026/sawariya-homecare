@@ -28,6 +28,13 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
             src={service.image}
             alt={service.title}
             fill
+            style={
+              service.id === 'babysitting'
+                ? { objectPosition: 'center 38%' }
+                : service.id === 'home-nursing' || service.id === 'physiotherapy'
+                ? { objectPosition: 'center 20%' }
+                : undefined
+            }
             className="object-cover object-center opacity-90"
             referrerPolicy="no-referrer"
           />

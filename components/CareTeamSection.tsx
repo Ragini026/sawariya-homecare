@@ -35,7 +35,7 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
             <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[420px] bg-slate-100 shrink-0 overflow-hidden">
               <Image
                 src="/images/prashant-suryavanshi.png"
-                alt="Prashant Suryavanshi — Executive Director"
+                alt="Prashant Suryavanshi — Director, Sawariya Home Care"
                 fill
                 className="object-cover object-top group-hover:scale-103 transition-transform duration-500"
                 referrerPolicy="no-referrer"
@@ -45,12 +45,7 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
             </div>
 
             {/* Lower Portion: Clean White Content Area (Padding 32px–36px) */}
-            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2.5 bg-white">
-              <div>
-                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#23439A] bg-[#EAF3FF] px-3 py-1 rounded-md border border-blue-100">
-                  EXECUTIVE DIRECTOR
-                </span>
-              </div>
+            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2 bg-white">
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Prashant Suryavanshi
               </h3>
@@ -69,7 +64,7 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
             <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[420px] bg-slate-100 shrink-0 overflow-hidden">
               <Image
                 src="/images/madhu-suryavanshi.png"
-                alt="Madhu Suryavanshi — Operations & Care Director"
+                alt="Madhu Suryavanshi — Founder, Sawariya Home Care"
                 fill
                 className="object-cover object-top group-hover:scale-103 transition-transform duration-500"
                 referrerPolicy="no-referrer"
@@ -78,17 +73,12 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
             </div>
 
             {/* Lower Portion: Clean White Content Area (Padding 32px–36px) */}
-            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2.5 bg-white">
-              <div>
-                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#22A06B] bg-[#E8F7EF] px-3 py-1 rounded-md border border-emerald-100">
-                  OPERATIONS &amp; CARE DIRECTOR
-                </span>
-              </div>
+            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2 bg-white">
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Madhu Suryavanshi
               </h3>
               <p className="text-sm sm:text-base font-semibold text-[#23439A]">
-                Director, Sawariya Home Care
+                Founder, Sawariya Home Care
               </p>
             </div>
           </div>

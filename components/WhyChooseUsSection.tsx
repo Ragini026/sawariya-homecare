@@ -84,12 +84,13 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
               {/* Main Image Container */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/15 aspect-4/5 sm:aspect-3/4 lg:aspect-4/5 bg-slate-900">
                 <Image
-                  src="/images/why-choose-us.webp"
-                  alt="Compassionate Indian caregiver supporting a senior patient with warmth and kindness"
+                  src="/assets/aistudio/Compassionate_Caregiver_Sharing_Tea_77a651d8.png"
+                  alt="Compassionate Indian caregiver in light-blue uniform warmly supporting an elderly woman at home"
                   fill
-                  className="object-cover object-center hover:scale-103 transition-transform duration-500"
+                  className="object-cover object-[center_20%] hover:scale-103 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 500px"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071A35]/80 via-transparent to-transparent" />
 
