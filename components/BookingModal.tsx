@@ -87,11 +87,13 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
 
               <div className="pt-4 flex flex-col gap-2.5">
                 <a
-                  href={`tel:${CONTACT_INFO.phones[0].raw}`}
-                  className="py-3 px-4 rounded-xl text-xs font-bold text-white bg-blue-900 hover:bg-blue-800 transition-colors flex items-center justify-center gap-2"
+                  href="https://wa.me/916265901231"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-4 rounded-xl text-xs font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] transition-colors flex items-center justify-center gap-2"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>Call Directly for Immediate Need</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Connect on WhatsApp for Immediate Need</span>
                 </a>
                 <button
                   onClick={handleResetAndClose}
@@ -203,13 +205,15 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
 
               {/* Direct call alternative */}
               <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <span>Or speak to our coordinator right now:</span>
+                <span>Or connect with our coordinator:</span>
                 <a
-                  href={`tel:${CONTACT_INFO.phones[0].raw}`}
-                  className="font-bold text-[#1D4ED8] hover:underline flex items-center gap-1"
+                  href="https://wa.me/916265901231"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#22A06B] hover:underline flex items-center gap-1"
                 >
-                  <Phone className="w-3 h-3" />
-                  {CONTACT_INFO.phones[0].display}
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  +91 62659 01231
                 </a>
               </div>
             </form>

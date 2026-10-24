@@ -3,10 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SawariyaLogo } from './SawariyaLogo';
-import { Menu, X } from 'lucide-react';
-
-const WHATSAPP_BOOKING_URL =
-  'https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caretaker.%20Please%20share%20the%20available%20services%2C%20care%20options%2C%20and%20pricing.%20Thank%20you.';
+import { Menu, X, Phone } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking?: () => void;
@@ -42,7 +39,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
     };
   }, [mobileMenuOpen]);
 
-  // Navigation Links: 'Contact' removed as requested
+  // Navigation Links
   const navLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'About', href: '#about-us' },
@@ -103,10 +100,22 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
             ))}
           </div>
 
-          {/* Desktop Right Action Area: WhatsApp Book a Caretaker CTA */}
-          <div className="hidden lg:flex items-center">
+          {/* Desktop Right Action Area: Phone Number & Book a Caretaker CTA */}
+          <div className="hidden lg:flex items-center gap-6">
+            {/* Phone Number with small green phone icon */}
             <a
-              href={WHATSAPP_BOOKING_URL}
+              href="tel:+917970258440"
+              className="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#4CAF7D] transition-colors whitespace-nowrap"
+              id="navbar-phone-link"
+              title="Call +91 79702 58440"
+            >
+              <Phone className="w-4 h-4 text-[#22A06B]" />
+              <span>+91 79702 58440</span>
+            </a>
+
+            {/* Book a Caretaker button redirecting to WhatsApp */}
+            <a
+              href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caretaker."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer shrink-0"
@@ -116,8 +125,17 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
             </a>
           </div>
 
-          {/* Mobile Right Action Area: Hamburger Menu Button */}
-          <div className="flex items-center lg:hidden">
+          {/* Mobile Right Action Area: Phone & Hamburger Menu Button */}
+          <div className="flex items-center gap-2.5 lg:hidden">
+            <a
+              href="tel:+917970258440"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-white/10 hover:bg-white/20 transition-colors"
+              id="navbar-mobile-phone-btn"
+              title="Call +91 79702 58440"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#22A06B]" />
+              <span className="hidden sm:inline">+91 79702 58440</span>
+            </a>
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="p-1.5 sm:p-2 rounded-lg text-white hover:bg-white/15 active:bg-white/25 focus:outline-hidden cursor-pointer flex items-center justify-center transition-colors"
@@ -160,7 +178,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
             </button>
           </div>
 
-          {/* Navigation Links and WhatsApp Caretaker Booking CTA */}
+          {/* Navigation Links, Phone, and Book a Caretaker CTA */}
           <div className="flex-1 flex flex-col px-6 py-6 overflow-y-auto bg-[#071A35] justify-between">
             <div>
               <nav className="flex flex-col divide-y divide-white/10" aria-label="Mobile Menu Links">
@@ -178,14 +196,23 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
               </nav>
             </div>
 
-            {/* Book a Caretaker CTA Button linked directly to WhatsApp */}
-            <div className="pt-6 pb-4">
+            {/* Phone link & Book a Caretaker CTA Button */}
+            <div className="pt-6 pb-4 space-y-3">
               <a
-                href={WHATSAPP_BOOKING_URL}
+                href="tel:+917970258440"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/15 transition-colors text-sm"
+                id="mobile-drawer-phone-link"
+              >
+                <Phone className="w-4 h-4 text-[#22A06B]" />
+                <span>+91 79702 58440</span>
+              </a>
+
+              <a
+                href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caretaker."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full py-3.5 rounded-xl text-center font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.99] transition-colors shadow-lg shadow-emerald-950/40 cursor-pointer text-base"
+                className="flex items-center justify-center w-full py-3.5 rounded-xl text-center font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.99] transition-colors shadow-lg shadow-emerald-950/40 cursor-pointer text-base"
                 id="mobile-drawer-book-caretaker-btn"
               >
                 Book a Caretaker

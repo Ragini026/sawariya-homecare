@@ -17,8 +17,8 @@ export const CONTACT_INFO = {
   tagline: 'Care That Brings Comfort Home',
   heroTrust: 'Care that feels like family.',
   phones: [
-    { display: '+91 79702 58440', raw: '+917970258440', isPrimary: true },
-    { display: '+91 62659 01231', raw: '+916265901231' },
+    { display: '+91 62659 01231', raw: '+916265901231', isPrimary: true },
+    { display: '+91 79702 58440', raw: '+917970258440' },
   ],
   navbarPhone: {
     display: '+91 79702 58440',

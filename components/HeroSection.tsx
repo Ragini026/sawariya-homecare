@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { ChevronDown, AlertCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBooking?: (serviceName?: string) => void;
@@ -18,7 +18,6 @@ const SERVICE_OPTIONS = [
 
 export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
   const [selectedCare, setSelectedCare] = useState('');
-  const [validationError, setValidationError] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -33,27 +32,6 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
 
   const handleSelectService = (service: string) => {
     setSelectedCare(service);
-    if (validationError) {
-      setValidationError(false);
-    }
-  };
-
-  const handleBookNow = () => {
-    // 3. WhatsApp Booking Functionality
-    // If no service is selected, prompt user to select a service before opening WhatsApp
-    if (!selectedCare) {
-      setValidationError(true);
-      return;
-    }
-
-    setValidationError(false);
-
-    // Format: “Hello Sawariya Home Care, I am interested in your [Selected Service] service. Please share the details and availability.”
-    const message = `Hello Sawariya Home Care, I am interested in your ${selectedCare} service. Please share the details and availability.`;
-    const whatsappUrl = `https://wa.me/917970258440?text=${encodeURIComponent(message)}`;
-
-    // Open WhatsApp directly via wa.me link without opening modal or navigating within site
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -137,11 +115,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
         {/* 2. Service Dropdown & Book Now Button Container */}
         <div className="pt-6 sm:pt-8 w-full flex flex-col items-center">
           <div
-            className={`inline-flex items-center bg-white rounded-full p-1.5 sm:p-2 shadow-2xl border transition-all duration-200 max-w-full sm:max-w-lg w-full ${
-              validationError
-                ? 'border-amber-400 ring-4 ring-amber-400/30'
-                : 'border-white/20'
-            }`}
+            className="inline-flex items-center bg-white rounded-full p-1.5 sm:p-2 shadow-2xl border border-white/20 transition-all duration-200 max-w-full sm:max-w-lg w-full"
           >
             {/* Entire dropdown field is clickable, including text and arrow */}
             <div className="relative flex-1 min-w-0 flex items-center justify-between pl-4 sm:pl-5 pr-3 sm:pr-4 h-full min-h-[46px] cursor-pointer group">
@@ -179,23 +153,16 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
             <div className="h-6 sm:h-7 w-px bg-slate-200 shrink-0 mx-1" aria-hidden="true" />
 
             {/* 3. Book Now button - redirects directly to WhatsApp */}
-            <button
-              type="button"
-              onClick={handleBookNow}
+            <a
+              href="https://wa.me/916265901231"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2F5CC8] hover:bg-[#2449A3] active:scale-[0.98] shadow-md shadow-[#2F5CC8]/25 transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap"
               id="hero-book-now-btn"
             >
               Book Now
-            </button>
+            </a>
           </div>
-
-          {/* Validation message if user clicks Book Now without selecting a service */}
-          {validationError && (
-            <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 text-xs font-medium animate-fadeIn">
-              <AlertCircle className="w-3.5 h-3.5 shrink-0 text-amber-300" />
-              <span>Please select a care service before booking.</span>
-            </div>
-          )}
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ export function ServiceEnquiryCta({ onRequestCare }: ServiceEnquiryCtaProps) {
     if (onRequestCare) {
       onRequestCare();
     } else {
-      const el = document.querySelector('#contact');
+      const el = document.querySelector('#main-footer') || document.querySelector('#services');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
@@ -66,24 +66,28 @@ export function ServiceEnquiryCta({ onRequestCare }: ServiceEnquiryCtaProps) {
               </p>
             </div>
 
-            {/* Single Primary Action Button + Direct Helpline Link */}
+            {/* Action Buttons to WhatsApp */}
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <button
-                onClick={handleScrollToContact}
+              <a
+                href="https://wa.me/916265901231"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-xl shadow-emerald-950/40 transition-all duration-200 text-base cursor-pointer group"
                 id="cta-request-care-btn"
               >
                 <span>Book a Consultation</span>
                 <ArrowRight className="ml-2 w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
 
               <a
-                href={`tel:${CONTACT_INFO.phones[0].raw}`}
+                href="https://wa.me/916265901231"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-white/15 bg-white/[0.06] hover:bg-white/[0.12] text-sm font-semibold text-slate-200 hover:text-white transition-all"
                 id="cta-direct-call-link"
               >
                 <PhoneCall className="w-4 h-4 text-[#4CAF7D]" />
-                <span>Or Call: {CONTACT_INFO.phones[0].display}</span>
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
 

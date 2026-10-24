@@ -159,17 +159,15 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                   </div>
                 </div>
 
-                {/* Interactive Action Link directly to WhatsApp */}
+                {/* Interactive Action Button to WhatsApp */}
                 <div className="pt-3 border-t border-white/10 flex justify-center">
                   <a
-                    href={`https://wa.me/917970258440?text=${encodeURIComponent(
-                      `Hello Sawariya Home Care, I am interested in your ${service.title} service. Please share the details and availability.`
-                    )}`}
+                    href="https://wa.me/916265901231"
                     target="_blank"
                     rel="noopener noreferrer"
                     id={`book-now-${service.id}`}
                     className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#4CAF7D] hover:text-emerald-300 hover:bg-white/[0.05] transition-all duration-200 cursor-pointer text-center focus:outline-none"
-                    aria-label={`Book Now for ${service.title} on WhatsApp`}
+                    aria-label={`Book Now on WhatsApp for ${service.title}`}
                   >
                     <span>Book Now</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform shrink-0" />

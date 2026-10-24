@@ -29,10 +29,10 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
           {/* Director 1: Prashant Suryavanshi */}
           <div
             id="director-profile-prashant"
-            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#23439A]/40 transition-all duration-300 flex flex-col group min-h-[580px] lg:h-[610px]"
+            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#23439A]/40 transition-all duration-300 flex flex-col group"
           >
             {/* Upper Portion: Large Director Image (~70% visual height) */}
-            <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[420px] bg-slate-100 shrink-0 overflow-hidden">
+            <div className="relative w-full h-[360px] sm:h-[390px] lg:h-[410px] bg-slate-100 shrink-0 overflow-hidden">
               <Image
                 src="/images/prashant-suryavanshi.png"
                 alt="Prashant Suryavanshi — Director, Sawariya Home Care"
@@ -44,8 +44,8 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
               />
             </div>
 
-            {/* Lower Portion: Clean White Content Area (Padding 32px–36px) */}
-            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2 bg-white">
+            {/* Lower Portion: Well-Proportioned Content Area */}
+            <div className="py-5 px-6 sm:py-6 sm:px-8 flex flex-col justify-center space-y-1 sm:space-y-1.5 bg-white">
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Prashant Suryavanshi
               </h3>
@@ -58,10 +58,10 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
           {/* Director 2: Madhu Suryavanshi */}
           <div
             id="director-profile-madhu"
-            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#22A06B]/40 transition-all duration-300 flex flex-col group min-h-[580px] lg:h-[610px]"
+            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#22A06B]/40 transition-all duration-300 flex flex-col group"
           >
             {/* Upper Portion: Large Director Image (~70% visual height) */}
-            <div className="relative w-full h-[380px] sm:h-[400px] lg:h-[420px] bg-slate-100 shrink-0 overflow-hidden">
+            <div className="relative w-full h-[360px] sm:h-[390px] lg:h-[410px] bg-slate-100 shrink-0 overflow-hidden">
               <Image
                 src="/images/madhu-suryavanshi.png"
                 alt="Madhu Suryavanshi — Founder, Sawariya Home Care"
@@ -72,8 +72,8 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
               />
             </div>
 
-            {/* Lower Portion: Clean White Content Area (Padding 32px–36px) */}
-            <div className="p-8 sm:p-9 flex-1 flex flex-col justify-center space-y-2 bg-white">
+            {/* Lower Portion: Well-Proportioned Content Area */}
+            <div className="py-5 px-6 sm:py-6 sm:px-8 flex flex-col justify-center space-y-1 sm:space-y-1.5 bg-white">
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Madhu Suryavanshi
               </h3>

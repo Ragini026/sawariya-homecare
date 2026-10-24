@@ -123,11 +123,13 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
         {/* Modal Action Footer */}
         <div className="p-4 sm:p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 flex-shrink-0">
           <a
-            href={`tel:${CONTACT_INFO.phones[0].raw}`}
-            className="text-xs font-bold text-slate-700 hover:text-[#1D4ED8] flex items-center gap-1.5 order-2 sm:order-1"
+            href="https://wa.me/916265901231"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-bold text-slate-700 hover:text-[#22A06B] flex items-center gap-1.5 order-2 sm:order-1"
           >
-            <Phone className="w-3.5 h-3.5 text-[#1D4ED8]" />
-            <span>Speak to Coordinator: {CONTACT_INFO.phones[0].display}</span>
+            <Phone className="w-3.5 h-3.5 text-[#22A06B]" />
+            <span>Chat on WhatsApp: +91 62659 01231</span>
           </a>
 
           <div className="flex items-center gap-3 w-full sm:w-auto order-1 sm:order-2">

@@ -13,7 +13,6 @@ import { FaqSection } from '@/components/FaqSection';
 import { Footer } from '@/components/Footer';
 import { BookingModal } from '@/components/BookingModal';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
-import { CONTACT_INFO } from '@/lib/data';
 import { Phone } from 'lucide-react';
 
 export default function HomePage() {
@@ -66,28 +65,30 @@ export default function HomePage() {
       {/* Footer */}
       <Footer />
 
-      {/* Floating Action Buttons for WhatsApp & Quick Call */}
-      <div className="fixed bottom-6 right-6 z-30 flex flex-col items-end gap-2.5">
+      {/* Floating Action Buttons: Call Helpline & WhatsApp */}
+      <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 flex flex-col items-center gap-3">
+        {/* Floating Call Button */}
+        <a
+          href="tel:+917970258440"
+          className="w-14 h-14 rounded-full bg-[#1D4ED8] hover:bg-[#1e40af] text-white shadow-xl hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
+          aria-label="Call Helpline +91 79702 58440"
+          title="Call Helpline: +91 79702 58440"
+          id="floating-call-btn"
+        >
+          <Phone className="w-6 h-6 text-white drop-shadow-xs" />
+        </a>
+
+        {/* Existing WhatsApp Floating Button */}
         <a
           href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20know%20more%20about%20your%20home-care%20services."
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all hover:scale-105"
+          className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
           aria-label="Chat with Care Coordinator on WhatsApp"
-          title="Chat on WhatsApp"
+          title="Chat with Care Coordinator on WhatsApp"
           id="floating-whatsapp-btn"
         >
-          <WhatsAppIcon className="w-6 h-6 fill-white" />
-        </a>
-
-        <a
-          href="tel:+917970258440"
-          className="w-12 h-12 rounded-full bg-[#1D4ED8] hover:bg-[#1e40af] text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all hover:scale-105"
-          aria-label="Call Helpline"
-          title="Call Helpline"
-          id="floating-phone-btn"
-        >
-          <Phone className="w-5 h-5" />
+          <WhatsAppIcon className="w-8 h-8 fill-white drop-shadow-xs" />
         </a>
       </div>
 
