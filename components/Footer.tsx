@@ -88,25 +88,16 @@ export function Footer() {
     }
   };
 
-  const quickNavLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About Us', href: '#about-us' },
-    { label: 'Care Services', href: '#services' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Why Choose Us', href: '#why-choose-us' },
-    { label: 'FAQ', href: '#faq' },
-  ];
-
   return (
     <footer
       className="bg-[#071A35] text-slate-300 pt-16 pb-12 border-t border-white/10 relative"
       id="main-footer"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Row: Brand, Quick Links, and Contact Us */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-start">
+        {/* Main Footer Row: Brand (Left) and Contact Us (Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Left Column: Brand Logo, Description, Social Icons */}
-          <div className="lg:col-span-5 flex flex-col items-start text-left space-y-5 max-w-sm">
+          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-5 max-w-lg">
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
@@ -138,33 +129,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Center Column: Quick Navigation Links */}
-          <div className="lg:col-span-3 flex flex-col items-start space-y-4 pt-2 lg:pt-0">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#22A06B]" />
-              <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
-                Quick Links
-              </h3>
-            </div>
-
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              {quickNavLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-slate-300 hover:text-[#4CAF7D] transition-colors inline-block py-0.5"
-                    id={`footer-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Right Column: Contact Us Section */}
-          <div className="lg:col-span-4 flex flex-col items-start space-y-4 pt-2 lg:pt-0 w-full max-w-md lg:ml-auto">
+          <div className="lg:col-span-5 flex flex-col items-start space-y-4 pt-2 lg:pt-0 w-full max-w-md lg:ml-auto">
             <div className="flex items-center">
               <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
                 Contact Us

@@ -9,17 +9,20 @@ interface HeroSectionProps {
 }
 
 const SERVICE_OPTIONS = [
-  'Baby Care',
-  'Male Patient Care',
-  'Female Patient Care',
-  'Patient Care',
-  'Caretaker',
+  'Senior Citizen / Elder Care',
+  'Newborn & Baby Care',
+  'Babysitting',
+  'Home Nursing',
+  'Patient Care & Caregivers',
+  'Medical Equipment Support',
 ];
 
 export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
   const [selectedCare, setSelectedCare] = useState('');
+  const [validationError, setValidationError] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const selectRef = useRef<HTMLSelectElement>(null);
 
   // Attempt video autoplay on mount with fallback handling
   useEffect(() => {
@@ -32,6 +35,26 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
 
   const handleSelectService = (service: string) => {
     setSelectedCare(service);
+    if (validationError) {
+      setValidationError(false);
+    }
+  };
+
+  const handleBookNow = (e: React.MouseEvent) => {
+    if (!selectedCare) {
+      e.preventDefault();
+      setValidationError(true);
+      if (selectRef.current) {
+        selectRef.current.focus();
+      }
+      return;
+    }
+    // Formatted WhatsApp URL with dynamic service name
+    const waText = encodeURIComponent(
+      `Hello Sawariya Home Care, I would like to enquire about your ${selectedCare} service.`
+    );
+    const waUrl = `https://wa.me/916265901231?text=${waText}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -115,7 +138,11 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
         {/* 2. Service Dropdown & Book Now Button Container */}
         <div className="pt-6 sm:pt-8 w-full flex flex-col items-center">
           <div
-            className="inline-flex items-center bg-white rounded-full p-1.5 sm:p-2 shadow-2xl border border-white/20 transition-all duration-200 max-w-full sm:max-w-lg w-full"
+            className={`inline-flex items-center bg-white rounded-full p-1.5 sm:p-2 shadow-2xl transition-all duration-200 max-w-full sm:max-w-lg w-full ${
+              validationError
+                ? 'border-2 border-red-500 ring-4 ring-red-500/20 animate-shake'
+                : 'border border-white/20'
+            }`}
           >
             {/* Entire dropdown field is clickable, including text and arrow */}
             <div className="relative flex-1 min-w-0 flex items-center justify-between pl-4 sm:pl-5 pr-3 sm:pr-4 h-full min-h-[46px] cursor-pointer group">
@@ -123,6 +150,8 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
                 className={`text-xs sm:text-sm truncate pr-2 pointer-events-none select-none text-left ${
                   selectedCare
                     ? 'text-slate-900 font-semibold'
+                    : validationError
+                    ? 'text-red-600 font-semibold'
                     : 'text-slate-500 font-medium'
                 }`}
               >
@@ -132,6 +161,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
 
               {/* Native select spanning the full container area */}
               <select
+                ref={selectRef}
                 value={selectedCare}
                 onChange={(e) => handleSelectService(e.target.value)}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20 text-slate-900 text-sm"
@@ -152,17 +182,23 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
             {/* Vertical Divider */}
             <div className="h-6 sm:h-7 w-px bg-slate-200 shrink-0 mx-1" aria-hidden="true" />
 
-            {/* 3. Book Now button - redirects directly to WhatsApp */}
-            <a
-              href="https://wa.me/916265901231"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* 3. Book Now button */}
+            <button
+              type="button"
+              onClick={handleBookNow}
               className="inline-flex items-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2F5CC8] hover:bg-[#2449A3] active:scale-[0.98] shadow-md shadow-[#2F5CC8]/25 transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap"
               id="hero-book-now-btn"
             >
               Book Now
-            </a>
+            </button>
           </div>
+
+          {/* Validation Feedback Message */}
+          {validationError && (
+            <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-red-500/90 text-white text-xs font-semibold shadow-lg backdrop-blur-md animate-fadeIn">
+              <span>⚠️ Please select a care service before booking.</span>
+            </div>
+          )}
         </div>
       </div>
     </section>

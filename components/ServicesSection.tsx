@@ -162,7 +162,9 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                 {/* Interactive Action Button to WhatsApp */}
                 <div className="pt-3 border-t border-white/10 flex justify-center">
                   <a
-                    href="https://wa.me/916265901231"
+                    href={`https://wa.me/916265901231?text=${encodeURIComponent(
+                      `Hello Sawariya Home Care, I would like to enquire about your ${service.title} service.`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     id={`book-now-${service.id}`}

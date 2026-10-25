@@ -14,8 +14,13 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
       className="py-18 sm:py-24 lg:py-28 bg-[#F8FAFC] relative overflow-hidden border-b border-slate-200/70"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header: Large Centered Heading & Centered Subtitle */}
+        {/* Section Header: Eyebrow Badge, Large Centered Heading & Centered Subtitle */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#22A06B]/30 text-[#22A06B] text-xs font-bold uppercase tracking-wider shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#22A06B]" />
+            Dedicated Leadership
+          </div>
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light text-slate-900 tracking-tight leading-tight">
             Leadership &amp; Guidance
           </h2>
@@ -29,7 +34,7 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
           {/* Director 1: Prashant Suryavanshi */}
           <div
             id="director-profile-prashant"
-            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#23439A]/40 transition-all duration-300 flex flex-col group"
+            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#23439A]/40 transition-all duration-300 flex flex-col group h-full"
           >
             {/* Upper Portion: Large Director Image (~70% visual height) */}
             <div className="relative w-full h-[360px] sm:h-[390px] lg:h-[410px] bg-slate-100 shrink-0 overflow-hidden">
@@ -45,7 +50,7 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
             </div>
 
             {/* Lower Portion: Well-Proportioned Content Area */}
-            <div className="py-5 px-6 sm:py-6 sm:px-8 flex flex-col justify-center space-y-1 sm:space-y-1.5 bg-white">
+            <div className="py-5 px-6 sm:py-6 sm:px-8 flex-1 flex flex-col justify-center space-y-1 sm:space-y-1.5 bg-white">
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Prashant Suryavanshi
               </h3>
@@ -58,7 +63,7 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
           {/* Director 2: Madhu Suryavanshi */}
           <div
             id="director-profile-madhu"
-            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#22A06B]/40 transition-all duration-300 flex flex-col group"
+            className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-[#22A06B]/40 transition-all duration-300 flex flex-col group h-full"
           >
             {/* Upper Portion: Large Director Image (~70% visual height) */}
             <div className="relative w-full h-[360px] sm:h-[390px] lg:h-[410px] bg-slate-100 shrink-0 overflow-hidden">
@@ -73,12 +78,15 @@ export function CareTeamSection({ onLearnMore }: CareTeamSectionProps = {}) {
             </div>
 
             {/* Lower Portion: Well-Proportioned Content Area */}
-            <div className="py-5 px-6 sm:py-6 sm:px-8 flex flex-col justify-center space-y-1 sm:space-y-1.5 bg-white">
+            <div className="py-5 px-6 sm:py-6 sm:px-8 flex-1 flex flex-col justify-center space-y-1 sm:space-y-1.5 bg-white">
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 leading-tight">
                 Madhu Suryavanshi
               </h3>
               <p className="text-sm sm:text-base font-semibold text-[#23439A]">
                 Founder, Sawariya Home Care
+              </p>
+              <p className="text-xs sm:text-sm font-medium text-slate-600">
+                4+ Years of Experience
               </p>
             </div>
           </div>

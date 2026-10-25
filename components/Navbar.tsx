@@ -100,7 +100,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
             ))}
           </div>
 
-          {/* Desktop Right Action Area: Phone Number & Book a Caretaker CTA */}
+          {/* Desktop Right Action Area: Phone Number & Book a Caregiver CTA */}
           <div className="hidden lg:flex items-center gap-6">
             {/* Phone Number with small green phone icon */}
             <a
@@ -113,28 +113,28 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
               <span>+91 79702 58440</span>
             </a>
 
-            {/* Book a Caretaker button redirecting to WhatsApp */}
+            {/* Book a Caregiver button redirecting to WhatsApp */}
             <a
-              href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caretaker."
+              href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caregiver."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer shrink-0"
-              id="navbar-book-caretaker-btn"
+              id="navbar-book-caregiver-btn"
             >
-              Book a Caretaker
+              Book a Caregiver
             </a>
           </div>
 
-          {/* Mobile Right Action Area: Phone & Hamburger Menu Button */}
-          <div className="flex items-center gap-2.5 lg:hidden">
+          {/* Mobile Right Action Area: Full Phone Number & Hamburger Menu Button */}
+          <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
             <a
               href="tel:+917970258440"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-white/10 hover:bg-white/20 transition-colors"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-white/10 hover:bg-white/20 transition-colors whitespace-nowrap"
               id="navbar-mobile-phone-btn"
               title="Call +91 79702 58440"
             >
-              <Phone className="w-3.5 h-3.5 text-[#22A06B]" />
-              <span className="hidden sm:inline">+91 79702 58440</span>
+              <Phone className="w-3.5 h-3.5 text-[#22A06B] shrink-0" />
+              <span>+91 79702 58440</span>
             </a>
             <button
               onClick={() => setMobileMenuOpen(true)}
@@ -178,8 +178,8 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
             </button>
           </div>
 
-          {/* Navigation Links, Phone, and Book a Caretaker CTA */}
-          <div className="flex-1 flex flex-col px-6 py-6 overflow-y-auto bg-[#071A35] justify-between">
+          {/* Navigation Links and Book a Caregiver CTA */}
+          <div className="flex-1 flex flex-col px-6 py-6 overflow-y-auto bg-[#071A35] justify-between pb-10 sm:pb-8">
             <div>
               <nav className="flex flex-col divide-y divide-white/10" aria-label="Mobile Menu Links">
                 {navLinks.map((link) => (
@@ -196,26 +196,17 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
               </nav>
             </div>
 
-            {/* Phone link & Book a Caretaker CTA Button */}
-            <div className="pt-6 pb-4 space-y-3">
+            {/* Book a Caregiver CTA Button (duplicate phone removed) */}
+            <div className="pt-6 pb-2 space-y-3">
               <a
-                href="tel:+917970258440"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/15 transition-colors text-sm"
-                id="mobile-drawer-phone-link"
-              >
-                <Phone className="w-4 h-4 text-[#22A06B]" />
-                <span>+91 79702 58440</span>
-              </a>
-
-              <a
-                href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caretaker."
+                href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caregiver."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center w-full py-3.5 rounded-xl text-center font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.99] transition-colors shadow-lg shadow-emerald-950/40 cursor-pointer text-base"
-                id="mobile-drawer-book-caretaker-btn"
+                id="mobile-drawer-book-caregiver-btn"
               >
-                Book a Caretaker
+                Book a Caregiver
               </a>
             </div>
           </div>
