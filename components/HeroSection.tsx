@@ -77,10 +77,9 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
             className="w-full h-full object-cover object-center"
           >
             <source
-              src="/assets/aistudio/gemini_generated_video_a873ab67_83daa300.mp4"
+              src="/assets/aistudio/gemini_generated_video_a873ab67_gwr_video_mvp_a59bbe15.mp4"
               type="video/mp4"
             />
-            <source src="/videos/hero-care-loop.mp4" type="video/mp4" />
             {/* Fallback Image inside video tag */}
             <Image
               src="/images/hero-homecare.jpg"
