@@ -65,7 +65,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
         - Fixed uniform height/padding to prevent layout shifts or flickering
       */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 py-3.5 sm:py-4 transition-colors duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 py-2.5 sm:py-3 transition-colors duration-300 ${
           isScrolled
             ? 'bg-[#071A35] shadow-lg border-b border-white/10'
             : 'bg-transparent border-b border-transparent shadow-none'

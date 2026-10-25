@@ -104,7 +104,7 @@ export function Footer() {
               className="flex justify-start focus:outline-none"
               aria-label="Sawariya Home Care - Back to top"
             >
-              <SawariyaLogo variant="dark" size="md" />
+              <SawariyaLogo variant="dark" size="footer" />
             </a>
 
             <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed text-left">

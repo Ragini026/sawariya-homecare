@@ -244,43 +244,8 @@ export const HOW_IT_WORKS_STEPS = [
   },
 ];
 
-export const TESTIMONIALS_DATA = [
-  {
-    quote: 'Having dependable support for my mother at home has given our family much-needed peace of mind. The caregiver treats her with immense warmth, respect, and patience.',
-    name: 'Anita Sharma',
-    relation: 'Daughter of Senior Care Recipient',
-    location: 'Home Elder Care',
-    rating: 5,
-  },
-  {
-    quote: 'The newborn care attendant from Sawariya was an incredible support after my C-section. From baby massage to night feeding guidance, she made our first month stress-free.',
-    name: 'Priya & Rahul Verma',
-    relation: 'New Parents',
-    location: 'Newborn & Mother Care',
-    rating: 5,
-  },
-  {
-    quote: 'As two working professionals, finding a trustworthy and gentle babysitter for our 3-year-old daughter was our top worry. Sawariya delivered dependable, loving childcare.',
-    name: 'Vikram & Neha Joshi',
-    relation: 'Working Parents',
-    location: 'Babysitting Support',
-    rating: 5,
-  },
-  {
-    quote: 'Following knee replacement surgery, traveling to hospital for physiotherapy was difficult. The physiotherapist from Sawariya came home daily and restored my mobility within weeks.',
-    name: 'Surendra Nath Gupta',
-    relation: 'Recovered Patient',
-    location: 'Physiotherapy at Home',
-    rating: 5,
-  },
-  {
-    quote: 'Sawariya provided a skilled home nurse for my father during critical post-op recovery. The punctuality, hygienic vitals monitoring, and kindness truly won our hearts.',
-    name: 'Meenakshi Sundaram',
-    relation: 'Family Caregiver',
-    location: 'Home Nursing Support',
-    rating: 5,
-  },
-];
+// Fictional testimonial data removed in favor of live Google Places API (New) genuine reviews.
+export const TESTIMONIALS_DATA = [];
 
 export const FAQ_DATA = [
   {
