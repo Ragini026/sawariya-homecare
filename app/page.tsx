@@ -30,7 +30,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-blue-100 selection:text-[#0B2545]">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-[#FFF1E6] selection:text-[#C2410C]">
       {/* Sticky Header Navigation with Transparent Hero Overlay */}
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 
@@ -70,7 +70,7 @@ export default function HomePage() {
         {/* Floating Call Button */}
         <a
           href="tel:+917970258440"
-          className="w-14 h-14 rounded-full bg-[#1D4ED8] hover:bg-[#1e40af] text-white shadow-xl hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
+          className="w-14 h-14 rounded-full bg-[#F87808] hover:bg-[#C2410C] text-white shadow-xl hover:shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
           aria-label="Call Helpline +91 79702 58440"
           title="Call Helpline: +91 79702 58440"
           id="floating-call-btn"

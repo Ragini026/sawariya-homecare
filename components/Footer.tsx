@@ -90,7 +90,7 @@ export function Footer() {
 
   return (
     <footer
-      className="bg-[#071A35] text-slate-300 pt-16 pb-12 border-t border-white/10 relative"
+      className="bg-[#292524] text-slate-300 pt-16 pb-12 border-t border-white/10 relative"
       id="main-footer"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,7 +140,7 @@ export function Footer() {
             <div className="space-y-4 w-full">
               {/* Address */}
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#F87808] shrink-0 mt-0.5" />
                 <div className="text-xs sm:text-sm">
                   <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">
                     Address
@@ -149,7 +149,7 @@ export function Footer() {
                     href="https://www.google.com/maps/dir//SAWARIYA+HOME+CARE,+near+Vyanktesh+Hospital,+Kamal+Vihar,+Sector+6,+Sector+8+A,+Raipur,+Chhattisgarh+492015/@22.3413479,82.551046,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a28dd4b71116313:0xf940fd81204e7ac6!2m2!1d81.6633505!2d21.1998868?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-200 hover:text-emerald-300 transition-colors leading-relaxed block"
+                    className="text-slate-200 hover:text-[#F87808] transition-colors leading-relaxed block"
                     id="footer-address-link"
                     title="Open location in Google Maps"
                   >
@@ -160,14 +160,14 @@ export function Footer() {
 
               {/* Email */}
               <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 text-[#F87808] shrink-0 mt-0.5" />
                 <div className="text-xs sm:text-sm">
                   <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">
                     Email
                   </span>
                   <a
                     href="mailto:sawariyahomecare@gmail.com"
-                    className="text-slate-200 hover:text-emerald-300 transition-colors font-medium"
+                    className="text-slate-200 hover:text-[#F87808] transition-colors font-medium"
                     id="footer-email-link"
                   >
                     sawariyahomecare@gmail.com
@@ -177,7 +177,7 @@ export function Footer() {
 
               {/* Phone */}
               <div className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 text-[#F87808] shrink-0 mt-0.5" />
                 <div className="text-xs sm:text-sm">
                   <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-0.5">
                     Phone
@@ -187,7 +187,7 @@ export function Footer() {
                       href="https://wa.me/916265901231"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-emerald-300 transition-colors"
+                      className="hover:text-[#F87808] transition-colors"
                       id="footer-phone-1"
                     >
                       +91 6265901231
@@ -195,7 +195,7 @@ export function Footer() {
                     <span className="text-slate-500 select-none">|</span>
                     <a
                       href="tel:+917970258440"
-                      className="hover:text-emerald-300 transition-colors"
+                      className="hover:text-[#F87808] transition-colors"
                       id="footer-phone-2"
                     >
                       +91 79702 58440
@@ -260,7 +260,7 @@ export function Footer() {
           onClick={() => setActiveModal(null)}
         >
           <div
-            className="bg-[#0B2545] border border-white/15 rounded-2xl max-w-lg w-full p-6 text-white shadow-2xl space-y-4"
+            className="bg-[#1C1917] border border-white/15 rounded-2xl max-w-lg w-full p-6 text-white shadow-2xl space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
@@ -285,7 +285,7 @@ export function Footer() {
             <div className="pt-2 flex justify-end">
               <button
                 onClick={() => setActiveModal(null)}
-                className="px-4 py-2 rounded-lg bg-[#22A06B] hover:bg-[#1E8E5E] text-white text-xs font-semibold tracking-wide transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-lg bg-[#F87808] hover:bg-[#C2410C] text-white text-xs font-semibold tracking-wide transition-colors cursor-pointer"
               >
                 Close
               </button>

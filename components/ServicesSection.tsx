@@ -23,32 +23,32 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'HeartHandshake':
-        return <HeartHandshake className="w-5 h-5 text-[#22A06B]" />;
+        return <HeartHandshake className="w-5 h-5 text-[#F87808]" />;
       case 'Baby':
-        return <Baby className="w-5 h-5 text-[#2F6BFF]" />;
+        return <Baby className="w-5 h-5 text-[#F87808]" />;
       case 'Smile':
-        return <Smile className="w-5 h-5 text-[#22A06B]" />;
+        return <Smile className="w-5 h-5 text-[#F87808]" />;
       case 'Activity':
-        return <Activity className="w-5 h-5 text-[#2F6BFF]" />;
+        return <Activity className="w-5 h-5 text-[#F87808]" />;
       case 'Accessibility':
-        return <Accessibility className="w-5 h-5 text-[#22A06B]" />;
+        return <Accessibility className="w-5 h-5 text-[#F87808]" />;
       case 'Bed':
-        return <Bed className="w-5 h-5 text-[#2F6BFF]" />;
+        return <Bed className="w-5 h-5 text-[#F87808]" />;
       default:
-        return <Activity className="w-5 h-5 text-[#22A06B]" />;
+        return <Activity className="w-5 h-5 text-[#F87808]" />;
     }
   };
 
   return (
     <section
       id="services"
-      className="py-18 sm:py-24 lg:py-28 bg-[#071A35] text-white relative overflow-hidden"
+      className="py-18 sm:py-24 lg:py-28 bg-[#292524] text-white relative overflow-hidden"
     >
       {/* Subtle Healthcare Ambient Lighting & Background Line Art */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        {/* Soft Blue & Green Ambient Glows */}
-        <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-[#23439A]/15 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 right-1/4 w-[500px] h-[500px] bg-[#22A06B]/15 rounded-full blur-3xl" />
+        {/* Soft Orange Ambient Glows */}
+        <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-[#F87808]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 right-1/4 w-[500px] h-[500px] bg-[#C2410C]/10 rounded-full blur-3xl" />
 
         {/* Low-Opacity Medical Cross Pattern */}
         <svg
@@ -90,7 +90,7 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14 sm:mb-18">
-          <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#E8F7EF]/10 border border-[#22A06B]/30 text-[#4CAF7D] text-xs font-semibold uppercase tracking-wider">
+          <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFF1E6]/10 border border-[#F87808]/30 text-[#F87808] text-xs font-semibold uppercase tracking-wider">
             Comprehensive In-Home Care
           </div>
 
@@ -102,16 +102,16 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
           </p>
         </div>
 
-        {/* Service Grid — Dark Cards with Lighter Surface and Green/Blue Accents */}
+        {/* Service Grid — Dark Cards with Lighter Surface and Orange Accents */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-8">
           {SERVICES_DATA.map((service) => (
             <div
               key={service.id}
-              className="group bg-[#0B2545] rounded-2xl overflow-hidden border border-white/10 hover:border-[#22A06B]/60 hover:bg-[#0E2C52] shadow-xl hover:shadow-2xl hover:shadow-emerald-950/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col"
+              className="group bg-[#1C1917] rounded-2xl overflow-hidden border border-white/10 hover:border-[#F87808]/60 hover:bg-[#35302D] shadow-xl hover:shadow-2xl hover:shadow-orange-950/30 hover:-translate-y-1.5 transition-all duration-300 flex flex-col"
               id={`service-card-${service.id}`}
             >
               {/* Service Card Image Banner */}
-              <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-900">
+              <div className="relative aspect-16/10 w-full overflow-hidden bg-stone-900">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -127,7 +127,7 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                   referrerPolicy="no-referrer"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-transparent to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917] via-transparent to-black/30" />
               </div>
 
               {/* Card Content Surface */}
@@ -135,10 +135,10 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                 <div className="space-y-3">
                   {/* Service Icon and Title */}
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 group-hover:border-[#22A06B]/50 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 group-hover:border-[#F87808]/50 transition-colors">
                       {getIcon(service.iconName)}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-serif font-bold text-white group-hover:text-[#4CAF7D] transition-colors leading-snug">
+                    <h3 className="text-lg sm:text-xl font-serif font-bold text-white group-hover:text-[#F87808] transition-colors leading-snug">
                       {service.title}
                     </h3>
                   </div>
@@ -148,11 +148,11 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                     {service.shortDesc}
                   </p>
 
-                  {/* Key Feature Bullets with Healthcare Green Checkmarks */}
+                  {/* Key Feature Bullets with Healthcare Orange Checkmarks */}
                   <div className="space-y-2 pt-2 border-t border-white/10">
                     {service.features.slice(0, 2).map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-slate-200">
-                        <Check className="w-3.5 h-3.5 text-[#22A06B] shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-[#F87808] shrink-0 mt-0.5" />
                         <span className="line-clamp-1">{feat}</span>
                       </div>
                     ))}
@@ -168,7 +168,7 @@ export function ServicesSection({ onBookService }: ServicesSectionProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     id={`book-now-${service.id}`}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#4CAF7D] hover:text-emerald-300 hover:bg-white/[0.05] transition-all duration-200 cursor-pointer text-center focus:outline-none"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold text-[#F87808] hover:text-[#C2410C] hover:bg-white/[0.05] transition-all duration-200 cursor-pointer text-center focus:outline-none"
                     aria-label={`Book Now on WhatsApp for ${service.title}`}
                   >
                     <span>Book Now</span>

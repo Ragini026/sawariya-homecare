@@ -39,15 +39,15 @@ export function StatisticsStrip() {
     <section
       id="statistics-strip"
       aria-label="Sawariya Home Care Key Statistics"
-      className="relative w-full bg-gradient-to-r from-[#06182C] via-[#092B3A] to-[#07242B] border-t border-[#4CAF7D]/25 border-b border-white/10 overflow-hidden shadow-md"
+      className="relative w-full bg-gradient-to-r from-[#1C1917] via-[#292524] to-[#1C1917] border-t border-[#F87808]/25 border-b border-white/10 overflow-hidden shadow-md"
     >
       {/* Subtle brand ambient accents for depth */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_0%,rgba(76,175,125,0.09),transparent)] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_0%,rgba(248,120,8,0.12),transparent)] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4CAF7D]/40 to-transparent pointer-events-none"
+        className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F87808]/40 to-transparent pointer-events-none"
         aria-hidden="true"
       />
 
@@ -73,13 +73,13 @@ export function StatisticsStrip() {
                 id={`stat-block-${idx + 1}`}
                 className={`flex flex-col items-center justify-center text-center px-2 sm:px-6 py-4 sm:py-6 transition-all duration-300 hover:bg-white/[0.02] ${borderClasses}`}
               >
-                {/* Large Bold Number with Subtle Green Accent */}
+                {/* Large Bold Number with Subtle Orange Accent */}
                 <div className="flex items-baseline justify-center select-none whitespace-nowrap">
                   <span className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-none drop-shadow-xs">
                     {stat.value}
                   </span>
                   {stat.accent && (
-                    <span className="text-xl sm:text-3xl lg:text-4xl font-bold text-[#4CAF7D] ml-0.5 leading-none">
+                    <span className="text-xl sm:text-3xl lg:text-4xl font-bold text-[#F87808] ml-0.5 leading-none">
                       {stat.accent}
                     </span>
                   )}

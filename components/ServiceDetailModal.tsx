@@ -23,7 +23,7 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
     >
       <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden max-h-[92vh] flex flex-col">
         {/* Modal Hero Image & Close Button */}
-        <div className="relative aspect-16/9 sm:aspect-21/9 w-full bg-slate-900 flex-shrink-0 overflow-hidden">
+        <div className="relative aspect-16/9 sm:aspect-21/9 w-full bg-stone-900 flex-shrink-0 overflow-hidden">
           <Image
             src={service.image}
             alt={service.title}
@@ -38,7 +38,7 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
             className="object-cover object-center opacity-90"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#292524] via-[#292524]/40 to-black/30" />
 
           {/* Close Button */}
           <button
@@ -51,7 +51,7 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
 
           {/* Header Title inside photo */}
           <div className="absolute bottom-4 left-6 right-6 text-white">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-200 bg-slate-900/80 px-2.5 py-1 rounded">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#F87808] bg-stone-900/80 px-2.5 py-1 rounded">
               {service.category}
             </span>
             <h3 className="text-2xl sm:text-3xl font-serif font-light text-white mt-1">
@@ -63,7 +63,7 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
         {/* Modal Scrollable Body */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 text-slate-700">
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8] mb-1">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C2410C] mb-1">
               Service Overview
             </h4>
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
@@ -73,13 +73,13 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
 
           {/* Detailed Features & Duties */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8] mb-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C2410C] mb-3">
               Included Responsibilities & Support
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {service.features.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#F87808] flex-shrink-0 mt-0.5" />
                   <span className="text-xs font-medium text-slate-800">{feat}</span>
                 </div>
               ))}
@@ -88,16 +88,16 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
 
           {/* Schedule Options */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8] mb-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C2410C] mb-3">
               Available Duration & Shift Options
             </h4>
             <div className="flex flex-wrap gap-2">
               {service.durationOptions.map((opt, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg bg-blue-50 text-xs font-semibold text-[#0B2545] border border-blue-200 flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-lg bg-[#FFF1E6] text-xs font-semibold text-[#292524] border border-[#F0D9C6] flex items-center gap-1.5"
                 >
-                  <Clock className="w-3.5 h-3.5 text-[#1D4ED8]" />
+                  <Clock className="w-3.5 h-3.5 text-[#C2410C]" />
                   {opt}
                 </span>
               ))}
@@ -106,13 +106,13 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
 
           {/* Key Family Benefits */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8] mb-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C2410C] mb-3">
               Key Family Benefits
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
               {service.keyBenefits.map((b, idx) => (
                 <li key={idx} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F87808]" />
                   <span>{b}</span>
                 </li>
               ))}
@@ -126,9 +126,9 @@ export function ServiceDetailModal({ service, onClose }: ServiceDetailModalProps
             href="https://wa.me/916265901231"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-bold text-slate-700 hover:text-[#22A06B] flex items-center gap-1.5 order-2 sm:order-1"
+            className="text-xs font-bold text-slate-700 hover:text-[#F87808] flex items-center gap-1.5 order-2 sm:order-1"
           >
-            <Phone className="w-3.5 h-3.5 text-[#22A06B]" />
+            <Phone className="w-3.5 h-3.5 text-[#F87808]" />
             <span>Chat on WhatsApp: +91 62659 01231</span>
           </a>
 

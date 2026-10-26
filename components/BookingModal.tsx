@@ -49,7 +49,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
     >
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden max-h-[90vh] flex flex-col">
         {/* Modal Header */}
-        <div className="bg-[#0B2545] text-white p-6 relative flex-shrink-0">
+        <div className="bg-[#292524] text-white p-6 relative flex-shrink-0">
           <button
             onClick={handleResetAndClose}
             className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-hidden"
@@ -59,7 +59,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
           </button>
 
           <div className="pr-8">
-            <span className="text-[10px] uppercase font-bold text-sky-300 tracking-[0.2em]">
+            <span className="text-[10px] uppercase font-bold text-[#F87808] tracking-[0.2em]">
               Sawariya Care Coordination
             </span>
             <h3 className="text-xl sm:text-2xl font-serif font-light text-white mt-0.5">
@@ -75,7 +75,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
         <div className="p-6 overflow-y-auto flex-1">
           {isSuccess ? (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 rounded-full bg-[#FFF1E6] text-[#C2410C] flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
               <h4 className="text-2xl font-serif font-semibold text-slate-900">Request Confirmed!</h4>
@@ -90,7 +90,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                   href="https://wa.me/916265901231"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-3 px-4 rounded-xl text-xs font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] transition-colors flex items-center justify-center gap-2"
+                  className="py-3 px-4 rounded-xl text-xs font-bold text-white bg-[#F87808] hover:bg-[#C2410C] transition-colors flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Connect on WhatsApp for Immediate Need</span>
@@ -113,7 +113,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                 <select
                   value={selectedService}
                   onChange={(e) => setSelectedService(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#F87808] bg-white"
                 >
                   {SERVICES_DATA.map((s) => (
                     <option key={s.id} value={s.title}>
@@ -131,7 +131,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                 <select
                   value={duration}
                   onChange={(e) => setDuration(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8] bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#F87808] bg-white"
                 >
                   <option value="12-Hour Day Shift">12-Hour Day Shift (Daytime Assistance)</option>
                   <option value="12-Hour Night Shift">12-Hour Night Shift (Night Supervision)</option>
@@ -153,7 +153,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                     placeholder="e.g. Ramesh Patel"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#F87808]"
                   />
                 </div>
                 <div>
@@ -166,7 +166,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                     placeholder="e.g. 98765 43210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#F87808]"
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                   placeholder="e.g. Starting next Monday, needs mobility assistance..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#1D4ED8]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:border-[#F87808]"
                 />
               </div>
 
@@ -190,7 +190,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl font-bold text-white bg-blue-900 hover:bg-blue-800 transition-colors text-sm shadow-xl shadow-blue-900/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                  className="w-full py-4 rounded-xl font-bold text-white bg-[#F87808] hover:bg-[#C2410C] transition-colors text-sm shadow-xl shadow-orange-950/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
                 >
                   {isSubmitting ? (
                     <span>Submitting Request...</span>
@@ -210,7 +210,7 @@ export function BookingModal({ isOpen, onClose, defaultService }: BookingModalPr
                   href="https://wa.me/916265901231"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-[#22A06B] hover:underline flex items-center gap-1"
+                  className="font-bold text-[#F87808] hover:underline flex items-center gap-1"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   +91 62659 01231

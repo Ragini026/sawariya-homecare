@@ -66,19 +66,19 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="py-18 sm:py-24 lg:py-28 bg-[#F1FAF5] relative overflow-hidden border-b border-slate-200/70"
+      className="py-18 sm:py-24 lg:py-28 bg-[#FFF1E6] relative overflow-hidden border-b border-[#F0D9C6]"
     >
       {/* Background Soft Healthcare Line Patterns */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-10 left-10 w-96 h-96 bg-[#E8F7EF]/80 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#EAF3FF]/80 rounded-full blur-3xl" />
+        <div className="absolute top-10 left-10 w-96 h-96 bg-[#FFF1E6]/80 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#FFF1E6]/50 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#22A06B]/30 text-[#22A06B] text-xs font-bold uppercase tracking-wider shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#22A06B]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#F87808]/30 text-[#C2410C] text-xs font-bold uppercase tracking-wider shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#F87808]" />
             Clear, Transparent Process
           </div>
 
@@ -92,9 +92,9 @@ export function HowItWorksSection() {
 
         {/* Visual Steps Container with Connecting Path */}
         <div className="relative">
-          {/* Thin Blue/Green Connecting Path on Desktop */}
+          {/* Thin Orange Connecting Path on Desktop */}
           <div
-            className="hidden lg:block absolute top-1/3 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-[#22A06B]/30 via-[#23439A]/30 to-[#22A06B]/30 -z-0"
+            className="hidden lg:block absolute top-1/3 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-[#F87808]/30 via-[#C2410C]/30 to-[#F87808]/30 -z-0"
             aria-hidden="true"
           />
 
@@ -102,16 +102,16 @@ export function HowItWorksSection() {
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="bg-white rounded-2xl border border-slate-200/80 p-7 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#22A06B]/50 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl border border-[#F0D9C6] p-7 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#F87808]/50 transition-all duration-300 flex flex-col justify-between group"
                 id={`how-it-works-step-${step.number}`}
               >
                 <div>
-                  {/* Step Header: Number in Green & Highlight Badge */}
+                  {/* Step Header: Number in Orange & Highlight Badge */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl sm:text-3xl font-serif font-bold text-[#22A06B] tracking-tight">
+                    <span className="text-2xl sm:text-3xl font-serif font-bold text-[#F87808] tracking-tight">
                       {step.number}
                     </span>
-                    <span className="text-[11px] font-bold text-[#23439A] bg-[#EAF3FF] px-2.5 py-1 rounded-full border border-blue-100">
+                    <span className="text-[11px] font-bold text-[#C2410C] bg-[#FFF1E6] px-2.5 py-1 rounded-full border border-[#F0D9C6]">
                       {step.highlight}
                     </span>
                   </div>
@@ -122,7 +122,7 @@ export function HowItWorksSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-serif font-bold text-slate-900 group-hover:text-[#23439A] transition-colors mb-2.5">
+                  <h3 className="text-xl font-serif font-bold text-slate-900 group-hover:text-[#C2410C] transition-colors mb-2.5">
                     {step.title}
                   </h3>
 

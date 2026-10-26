@@ -67,7 +67,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
       <header
         className={`fixed top-0 left-0 right-0 z-40 py-2.5 sm:py-3 transition-colors duration-300 ${
           isScrolled
-            ? 'bg-[#071A35] shadow-lg border-b border-white/10'
+            ? 'bg-[#292524] shadow-lg border-b border-white/10'
             : 'bg-transparent border-b border-transparent shadow-none'
         }`}
         id="main-header"
@@ -92,7 +92,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-semibold tracking-wide text-white/90 hover:text-[#4CAF7D] transition-colors relative py-1 drop-shadow-xs after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#4CAF7D] hover:after:w-full after:transition-all after:duration-200"
+                className="text-sm font-semibold tracking-wide text-white/90 hover:text-[#F87808] transition-colors relative py-1 drop-shadow-xs after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#F87808] hover:after:w-full after:transition-all after:duration-200"
                 id={`nav-link-${link.label.toLowerCase()}`}
               >
                 {link.label}
@@ -102,14 +102,14 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
 
           {/* Desktop Right Action Area: Phone Number & Book a Caregiver CTA */}
           <div className="hidden lg:flex items-center gap-6">
-            {/* Phone Number with small green phone icon */}
+            {/* Phone Number with small orange phone icon */}
             <a
               href="tel:+917970258440"
-              className="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#4CAF7D] transition-colors whitespace-nowrap"
+              className="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#F87808] transition-colors whitespace-nowrap"
               id="navbar-phone-link"
               title="Call +91 79702 58440"
             >
-              <Phone className="w-4 h-4 text-[#22A06B]" />
+              <Phone className="w-4 h-4 text-[#F87808]" />
               <span>+91 79702 58440</span>
             </a>
 
@@ -118,7 +118,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
               href="https://wa.me/916265901231?text=Hello%20Sawariya%20Home%20Care%2C%20I%20would%20like%20to%20enquire%20about%20booking%20a%20caregiver."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.98] shadow-lg shadow-emerald-950/30 hover:shadow-emerald-900/40 transition-all duration-200 cursor-pointer shrink-0"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#F87808] hover:bg-[#C2410C] active:scale-[0.98] shadow-lg shadow-orange-950/30 hover:shadow-orange-900/40 transition-all duration-200 cursor-pointer shrink-0"
               id="navbar-book-caregiver-btn"
             >
               Book a Caregiver
@@ -133,7 +133,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
               id="navbar-mobile-phone-btn"
               title="Call +91 79702 58440"
             >
-              <Phone className="w-3.5 h-3.5 text-[#22A06B] shrink-0" />
+              <Phone className="w-3.5 h-3.5 text-[#F87808] shrink-0" />
               <span>+91 79702 58440</span>
             </a>
             <button
@@ -152,14 +152,14 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
       {/* Full-Height Mobile Navigation Drawer Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-50 bg-[#071A35] flex flex-col h-screen h-[100dvh] w-screen max-w-full overflow-hidden lg:hidden text-white"
+          className="fixed inset-0 z-50 bg-[#292524] flex flex-col h-screen h-[100dvh] w-screen max-w-full overflow-hidden lg:hidden text-white"
           id="mobile-navigation-overlay"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
         >
           {/* Top Bar with Brand Logo & Close (X) Icon */}
-          <div className="w-full bg-[#071A35] py-4 px-4 sm:px-6 border-b border-white/10 flex items-center justify-between shrink-0">
+          <div className="w-full bg-[#292524] py-4 px-4 sm:px-6 border-b border-white/10 flex items-center justify-between shrink-0">
             <Link
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
@@ -179,7 +179,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
           </div>
 
           {/* Navigation Links and Book a Caregiver CTA */}
-          <div className="flex-1 flex flex-col px-6 py-6 overflow-y-auto bg-[#071A35] justify-between pb-10 sm:pb-8">
+          <div className="flex-1 flex flex-col px-6 py-6 overflow-y-auto bg-[#292524] justify-between pb-10 sm:pb-8">
             <div>
               <nav className="flex flex-col divide-y divide-white/10" aria-label="Mobile Menu Links">
                 {navLinks.map((link) => (
@@ -187,7 +187,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="py-3.5 text-lg font-medium text-slate-200 hover:text-[#4CAF7D] active:text-[#4CAF7D] transition-colors"
+                    className="py-3.5 text-lg font-medium text-slate-200 hover:text-[#F87808] active:text-[#F87808] transition-colors"
                     id={`mobile-nav-link-${link.label.toLowerCase()}`}
                   >
                     {link.label}
@@ -203,7 +203,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center w-full py-3.5 rounded-xl text-center font-bold text-white bg-[#22A06B] hover:bg-[#1B8356] active:scale-[0.99] transition-colors shadow-lg shadow-emerald-950/40 cursor-pointer text-base"
+                className="flex items-center justify-center w-full py-3.5 rounded-xl text-center font-bold text-white bg-[#F87808] hover:bg-[#C2410C] active:scale-[0.99] transition-colors shadow-lg shadow-orange-950/40 cursor-pointer text-base"
                 id="mobile-drawer-book-caregiver-btn"
               >
                 Book a Caregiver

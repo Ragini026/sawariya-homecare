@@ -73,7 +73,7 @@ function GoogleReviewCard({ review, businessGoogleUrl }: ReviewCardProps) {
                 className="w-11 h-11 rounded-full object-cover shrink-0 border border-slate-200/80 bg-slate-100"
               />
             ) : (
-              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold text-sm flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#F87808] to-[#C2410C] text-white font-semibold text-sm flex items-center justify-center shrink-0 shadow-xs">
                 {initials}
               </div>
             )}
@@ -83,7 +83,7 @@ function GoogleReviewCard({ review, businessGoogleUrl }: ReviewCardProps) {
                 href={targetLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm sm:text-base font-semibold text-slate-900 hover:text-blue-600 transition-colors truncate block"
+                className="text-sm sm:text-base font-semibold text-slate-900 hover:text-[#F87808] transition-colors truncate block"
                 title={review.authorName}
               >
                 {review.authorName}
@@ -123,7 +123,7 @@ function GoogleReviewCard({ review, businessGoogleUrl }: ReviewCardProps) {
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-700 hover:underline focus:outline-hidden cursor-pointer"
+            className="mt-2 text-xs font-semibold text-[#F87808] hover:text-[#C2410C] hover:underline focus:outline-hidden cursor-pointer"
           >
             {isExpanded ? 'Show less' : 'Read more'}
           </button>
@@ -140,7 +140,7 @@ function GoogleReviewCard({ review, businessGoogleUrl }: ReviewCardProps) {
           href={targetLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-blue-600 transition-colors inline-flex items-center gap-1 text-[11px] font-medium"
+          className="hover:text-[#F87808] transition-colors inline-flex items-center gap-1 text-[11px] font-medium"
         >
           View on Maps
           <ExternalLink className="w-3 h-3" />
@@ -305,12 +305,12 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-18 sm:py-24 lg:py-28 bg-[#F7FAFC] relative overflow-hidden border-b border-slate-200/70"
+      className="py-18 sm:py-24 lg:py-28 bg-[#FFFCF8] relative overflow-hidden border-b border-slate-200/70"
     >
       {/* Background Soft Blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        <div className="absolute top-1/3 left-10 w-96 h-96 bg-[#E8F7EF]/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#EAF3FF]/50 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-10 w-96 h-96 bg-[#FFF1E6]/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#FFF1E6]/25 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -362,7 +362,7 @@ export function TestimonialsSection() {
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#22A06B] hover:bg-[#1c8457] text-white text-sm font-semibold transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F87808] hover:bg-[#C2410C] text-white text-sm font-semibold transition-colors shadow-xs"
               >
                 <span>Read Verified Reviews on Google</span>
                 <ExternalLink className="w-4 h-4" />
@@ -387,7 +387,7 @@ export function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="hidden md:flex absolute -left-2 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-300 items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer focus:outline-hidden"
+                className="hidden md:flex absolute -left-2 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-[#F87808] hover:border-[#F87808]/50 items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer focus:outline-hidden"
                 aria-label="Previous Google reviews"
                 id="prev-google-review-btn"
               >
@@ -433,7 +433,7 @@ export function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="hidden md:flex absolute -right-2 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-300 items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer focus:outline-hidden"
+                className="hidden md:flex absolute -right-2 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-[#F87808] hover:border-[#F87808]/50 items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer focus:outline-hidden"
                 aria-label="Next Google reviews"
                 id="next-google-review-btn"
               >
@@ -454,7 +454,7 @@ export function TestimonialsSection() {
                     }}
                     className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       currentIndex === idx
-                        ? 'w-8 bg-[#0B2545]'
+                        ? 'w-8 bg-[#F87808]'
                         : 'w-2 bg-slate-300 hover:bg-slate-400'
                     }`}
                     aria-label={`Go to review ${idx + 1}`}

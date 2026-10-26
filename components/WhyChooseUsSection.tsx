@@ -14,42 +14,42 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
       title: 'Compassionate Care',
       desc: 'Empathetic, respectful assistance prioritizing emotional comfort and dignity.',
       icon: Heart,
-      iconColor: 'text-[#22A06B]',
-      bgColor: 'bg-[#22A06B]/10 border-[#22A06B]/30',
+      iconColor: 'text-[#F87808]',
+      bgColor: 'bg-[#F87808]/10 border-[#F87808]/30',
     },
     {
       title: 'Personalized Attention',
       desc: 'Individualized care routines tailored to your family’s needs and schedule.',
       icon: UserCheck,
-      iconColor: 'text-[#2F6BFF]',
-      bgColor: 'bg-[#2F6BFF]/10 border-[#2F6BFF]/30',
+      iconColor: 'text-[#C2410C]',
+      bgColor: 'bg-[#C2410C]/10 border-[#C2410C]/30',
     },
     {
       title: 'Reliable Support',
       desc: 'Thoroughly screened caregivers with dependable 24/7 coordinator support.',
       icon: ShieldCheck,
-      iconColor: 'text-[#22A06B]',
-      bgColor: 'bg-[#22A06B]/10 border-[#22A06B]/30',
+      iconColor: 'text-[#F87808]',
+      bgColor: 'bg-[#F87808]/10 border-[#F87808]/30',
     },
     {
       title: 'Family-First Approach',
       desc: 'Punctual care, transparent communication, and no hidden costs.',
       icon: Home,
-      iconColor: 'text-[#2F6BFF]',
-      bgColor: 'bg-[#2F6BFF]/10 border-[#2F6BFF]/30',
+      iconColor: 'text-[#C2410C]',
+      bgColor: 'bg-[#C2410C]/10 border-[#C2410C]/30',
     },
   ];
 
   return (
     <section
       id="why-choose-us"
-      className="py-18 sm:py-24 lg:py-28 bg-[#071A35] text-white relative overflow-hidden"
+      className="py-18 sm:py-24 lg:py-28 bg-[#292524] text-white relative overflow-hidden"
     >
       {/* Subtle Abstract Healthcare Patterns in Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
         {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-[#22A06B]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#23439A]/15 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-[#F87808]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#C2410C]/15 rounded-full blur-3xl" />
 
         {/* Abstract Medical Cross and Care Circles */}
         <svg
@@ -79,10 +79,10 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Outer Glow Halo */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#22A06B]/20 to-[#23439A]/20 blur-xl -z-10" />
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#F87808]/20 to-[#C2410C]/20 blur-xl -z-10" />
 
               {/* Main Image Container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/15 aspect-4/5 sm:aspect-3/4 lg:aspect-4/5 bg-slate-900">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/15 aspect-4/5 sm:aspect-3/4 lg:aspect-4/5 bg-stone-900">
                 <Image
                   src="/assets/aistudio/Compassionate_Caregiver_Sharing_Tea_77a651d8.png"
                   alt="Compassionate Indian caregiver in light-blue uniform warmly supporting an elderly woman at home"
@@ -92,12 +92,12 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 500px"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071A35]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#292524]/80 via-transparent to-transparent" />
 
                 {/* Floating Micro Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-[#071A35]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15 flex items-center gap-3 shadow-lg">
-                  <div className="w-9 h-9 rounded-lg bg-[#22A06B]/20 text-[#4CAF7D] flex items-center justify-center shrink-0 border border-[#22A06B]/40">
-                    <Heart className="w-5 h-5 fill-[#22A06B]/30" />
+                <div className="absolute bottom-4 left-4 right-4 bg-[#1C1917]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/15 flex items-center gap-3 shadow-lg">
+                  <div className="w-9 h-9 rounded-lg bg-[#F87808]/20 text-[#F87808] flex items-center justify-center shrink-0 border border-[#F87808]/40">
+                    <Heart className="w-5 h-5 fill-[#F87808]/30" />
                   </div>
                   <div>
                     <div className="text-white font-bold text-xs">Heartfelt Attention</div>
@@ -111,13 +111,13 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
           {/* Right Side: Heading & Four Benefit Cards (7 cols) */}
           <div className="lg:col-span-7 space-y-7 pt-2 lg:pt-0">
             <div className="space-y-3">
-              <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#E8F7EF]/10 border border-[#22A06B]/30 text-[#4CAF7D] text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFF1E6]/10 border border-[#F87808]/30 text-[#F87808] text-xs font-semibold uppercase tracking-wider">
                 Why Choose Sawariya
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light text-white tracking-tight leading-tight">
                 Healthcare Excellence with a{' '}
-                <span className="text-[#4CAF7D] font-normal italic font-serif">
+                <span className="text-[#F87808] font-normal italic font-serif">
                   Personal Touch.
                 </span>
               </h2>
@@ -133,14 +133,14 @@ export function WhyChooseUsSection({ onOpenBooking }: WhyChooseUsSectionProps) {
                 return (
                   <div
                     key={item.title}
-                    className="p-5 rounded-2xl bg-white/[0.05] border border-white/10 hover:border-[#22A06B]/50 hover:bg-white/[0.09] shadow-sm transition-all duration-300 flex flex-col justify-start group"
+                    className="p-5 rounded-2xl bg-white/[0.05] border border-white/10 hover:border-[#F87808]/50 hover:bg-white/[0.09] shadow-sm transition-all duration-300 flex flex-col justify-start group"
                   >
                     <div
                       className={`w-10 h-10 rounded-xl ${item.bgColor} ${item.iconColor} border flex items-center justify-center shrink-0 mb-3 group-hover:scale-105 transition-transform`}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[#4CAF7D] transition-colors">
+                    <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[#F87808] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">

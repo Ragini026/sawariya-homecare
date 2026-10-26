@@ -60,7 +60,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen min-h-[720px] min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#071A35] text-white"
+      className="relative w-full h-screen min-h-[720px] min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#292524] text-white"
     >
       {/* Layer 1: Background Video */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0" aria-hidden="true">
@@ -107,7 +107,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
 
       {/* Layer 2: Semi-transparent Dark Overlay (45-55% opacity for optimal text readability while keeping the video clearly visible) */}
       <div
-        className="absolute inset-0 bg-[#071A35]/50 bg-gradient-to-b from-[#071A35]/60 via-black/45 to-[#071A35]/60 z-10 pointer-events-none"
+        className="absolute inset-0 bg-[#292524]/50 bg-gradient-to-b from-[#292524]/60 via-black/45 to-[#292524]/60 z-10 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -115,7 +115,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-20 pb-12 sm:pb-16 flex flex-col items-center text-center">
         {/* Raipur Location Trust Indicator */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.10] border border-white/20 backdrop-blur-md shadow-sm mb-6 sm:mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#22A06B] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#F87808] animate-pulse" />
           <span className="text-xs font-semibold text-white tracking-wide uppercase">
             Raipur’s Trusted Home Care Service
           </span>
@@ -125,7 +125,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
         <div className="space-y-4 sm:space-y-5 max-w-3xl">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.12]">
             Trusted Care,{' '}
-            <span className="text-[#4CAF7D] font-normal italic font-serif">
+            <span className="text-[#F87808] font-normal italic font-serif">
               Right at Home.
             </span>
           </h1>
@@ -185,7 +185,7 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps = {}) {
             <button
               type="button"
               onClick={handleBookNow}
-              className="inline-flex items-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#2F5CC8] hover:bg-[#2449A3] active:scale-[0.98] shadow-md shadow-[#2F5CC8]/25 transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap"
+              className="inline-flex items-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#F87808] hover:bg-[#C2410C] active:scale-[0.98] shadow-md shadow-[#F87808]/25 transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap"
               id="hero-book-now-btn"
             >
               Book Now

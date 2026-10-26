@@ -38,7 +38,7 @@ export function SawariyaLogo({
       id="sawariya-brand-logo"
     >
       <Image
-        src="/images/sawariya-logo.png"
+        src="/assets/aistudio/Sawariya_2f0776d7.png"
         alt="Sawariya Home Care"
         width={width}
         height={height}
@@ -60,16 +60,16 @@ export function PeacockFeatherDecorative({ className = '' }: { className?: strin
     >
       <path
         d="M20 100 C 40 75, 60 50, 95 15"
-        stroke="#0284C7"
+        stroke="#F87808"
         strokeWidth="3"
         strokeLinecap="round"
       />
       <path
         d="M95 15 C 110 25, 115 50, 100 70 C 85 88, 55 90, 45 78 C 38 68, 45 42, 70 25 Z"
-        fill="#0284C7"
+        fill="#F87808"
       />
-      <circle cx="82" cy="45" r="15" fill="#059669" />
-      <circle cx="82" cy="45" r="8" fill="#F59E0B" />
+      <circle cx="82" cy="45" r="15" fill="#C2410C" />
+      <circle cx="82" cy="45" r="8" fill="#F87808" />
     </svg>
   );
 }

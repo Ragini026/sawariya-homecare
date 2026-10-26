@@ -18,19 +18,19 @@ export function FaqSection() {
   return (
     <section
       id="faq"
-      className="py-18 sm:py-24 lg:py-28 bg-[#071A35] relative overflow-hidden border-b border-white/10"
+      className="py-18 sm:py-24 lg:py-28 bg-[#292524] relative overflow-hidden border-b border-white/10"
     >
       {/* Background Subtle Ambient Glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#22A06B]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#2F6BFF]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#F87808]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#C2410C]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading & Subtitle — Centered at Top */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#102746] border border-[#22A06B]/40 text-[#22A06B] text-xs font-bold uppercase tracking-wider shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#22A06B]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1917] border border-[#F87808]/40 text-[#F87808] text-xs font-bold uppercase tracking-wider shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#F87808]" />
             Common Questions
           </div>
 
@@ -53,33 +53,33 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className={`border rounded-2xl overflow-hidden transition-all duration-200 bg-[#102746] ${
+                className={`border rounded-2xl overflow-hidden transition-all duration-200 bg-[#1C1917] ${
                   isOpen
-                    ? 'border-[#22A06B]/60 shadow-lg ring-1 ring-[#22A06B]/25'
-                    : 'border-white/10 shadow-2xs hover:border-[#2F6BFF]/40 hover:shadow-xs'
+                    ? 'border-[#F87808]/60 shadow-lg ring-1 ring-[#F87808]/25'
+                    : 'border-white/10 shadow-2xs hover:border-[#F87808]/40 hover:shadow-xs'
                 }`}
                 id={`faq-item-${idx}`}
               >
                 <button
                   type="button"
                   onClick={() => toggleIndex(idx)}
-                  className="group w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-serif font-semibold text-white hover:text-[#2F6BFF] transition-colors focus:outline-hidden cursor-pointer"
+                  className="group w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-serif font-semibold text-white hover:text-[#F87808] transition-colors focus:outline-hidden cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span className="text-base sm:text-lg pr-2 leading-snug text-white">{item.question}</span>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200 ${
                       isOpen
-                        ? 'bg-[#22A06B]/20 text-[#22A06B]'
-                        : 'bg-white/5 text-[#22A06B] group-hover:bg-[#2F6BFF]/20 group-hover:text-[#2F6BFF]'
+                        ? 'bg-[#F87808]/20 text-[#F87808]'
+                        : 'bg-white/5 text-[#F87808] group-hover:bg-[#F87808]/20 group-hover:text-[#F87808]'
                     }`}
                   >
-                    {isOpen ? <Minus className="w-4 h-4 text-[#22A06B]" /> : <Plus className="w-4 h-4 text-[#22A06B]" />}
+                    {isOpen ? <Minus className="w-4 h-4 text-[#F87808]" /> : <Plus className="w-4 h-4 text-[#F87808]" />}
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#CBD5E1] leading-relaxed border-t border-white/10 bg-[#102746]">
+                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#CBD5E1] leading-relaxed border-t border-white/10 bg-[#1C1917]">
                     <p>{item.answer}</p>
                   </div>
                 )}
