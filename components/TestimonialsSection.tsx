@@ -1,11 +1,16 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Image from 'next/image';
-import { Star, ChevronLeft, ChevronRight, ExternalLink, RefreshCw, AlertCircle } from 'lucide-react';
-import type { CleanGoogleReview, GoogleReviewsApiResponse } from '@/app/api/reviews/route';
+import { Star, ChevronLeft, ChevronRight, RefreshCw, AlertCircle } from 'lucide-react';
+import type { GoogleReviewsApiResponse } from '@/app/api/reviews/route';
+import {
+  GENUINE_GOOGLE_REVIEWS_COLLECTION,
+  TEMPORARY_SAMPLE_TESTIMONIALS,
+  type GenuineGoogleReview,
+} from '@/lib/data';
 
-// Official Google "G" 4-color SVG Icon
+// Official Google "G" 4-color SVG Icon (displayed exclusively on genuine Google review cards)
 export function GoogleIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -29,122 +34,99 @@ export function GoogleIcon({ className = 'w-4 h-4' }: { className?: string }) {
   );
 }
 
-// Minimal Google Review Card
-interface ReviewCardProps {
-  review: CleanGoogleReview;
-  businessGoogleUrl: string;
+// Unified item representation for mixed carousel
+export interface TestimonialItem {
+  id: string;
+  isGoogleReview: boolean;
+  authorName: string;
+  authorPhotoUrl?: string | null;
+  rating: number; // Always 5
+  text: string;
+  relativeTime: string;
+  serviceCategory?: string;
 }
 
-function GoogleReviewCard({ review, businessGoogleUrl }: ReviewCardProps) {
+// Card Component: Standardized fixed-height card for consistent visual alignment
+function TestimonialCard({ item }: { item: TestimonialItem }) {
   const [imageError, setImageError] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   // Derive up to 2 uppercase initials for avatar fallback
-  const initials = review.authorName
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() || '')
-    .join('') || 'G';
-
-  // Truncate reviews longer than 150 characters
-  const shouldTruncate = review.text.length > 150;
-  const displayText = shouldTruncate && !isExpanded
-    ? `${review.text.slice(0, 150)}...`
-    : review.text;
-
-  const targetLink = review.authorUri || businessGoogleUrl;
+  const initials =
+    item.authorName
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase() || '')
+      .join('') || (item.isGoogleReview ? 'G' : 'C');
 
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group relative">
-      <div>
-        {/* Card Header: Reviewer Info & Google Badge */}
-        <div className="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
-          <div className="flex items-center gap-3 min-w-0">
-            {/* Reviewer Google Profile Photo or Initials Avatar */}
-            {review.authorPhotoUrl && !imageError ? (
-              <Image
-                src={review.authorPhotoUrl}
-                alt={review.authorName}
-                width={44}
-                height={44}
-                referrerPolicy="no-referrer"
-                onError={() => setImageError(true)}
-                className="w-11 h-11 rounded-full object-cover shrink-0 border border-slate-200/80 bg-slate-100"
-              />
-            ) : (
-              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#F87808] to-[#C2410C] text-white font-semibold text-sm flex items-center justify-center shrink-0 shadow-xs">
-                {initials}
-              </div>
-            )}
-
-            <div className="min-w-0">
-              <a
-                href={targetLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm sm:text-base font-semibold text-slate-900 hover:text-[#F87808] transition-colors truncate block"
-                title={review.authorName}
-              >
-                {review.authorName}
-              </a>
-              <span className="text-xs text-slate-400 block mt-0.5">
-                {review.relativeTime}
-              </span>
+    <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-start h-[285px] sm:h-[280px] lg:h-[285px] w-full group relative">
+      {/* Card Header: Reviewer Info & Badge */}
+      <div className="flex items-start justify-between gap-3 pb-3 border-b border-slate-100 shrink-0">
+        <div className="flex items-center gap-3 min-w-0">
+          {/* Reviewer Profile Photo or Initials Avatar */}
+          {item.authorPhotoUrl && !imageError ? (
+            <Image
+              src={item.authorPhotoUrl}
+              alt={item.authorName}
+              width={44}
+              height={44}
+              referrerPolicy="no-referrer"
+              onError={() => setImageError(true)}
+              className="w-11 h-11 rounded-full object-cover shrink-0 border border-slate-200/80 bg-slate-100"
+            />
+          ) : (
+            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#F87808] to-[#C2410C] text-white font-semibold text-sm flex items-center justify-center shrink-0 shadow-xs">
+              {initials}
             </div>
-          </div>
+          )}
 
-          {/* Small Google Logo & "Google Review" Label */}
+          <div className="min-w-0">
+            <span
+              className="text-sm sm:text-base font-semibold text-slate-900 truncate block"
+              title={item.authorName}
+            >
+              {item.authorName}
+            </span>
+            <span className="text-xs text-slate-400 block mt-0.5">
+              {item.relativeTime}
+            </span>
+          </div>
+        </div>
+
+        {/* Badge: Google Logo & label ONLY on Google review cards */}
+        {item.isGoogleReview ? (
           <div className="flex items-center gap-1.5 shrink-0 px-2 py-1 rounded-md bg-slate-50 border border-slate-200/60">
             <GoogleIcon className="w-3.5 h-3.5" />
             <span className="text-[11px] font-medium text-slate-500 hidden sm:inline">
               Google Review
             </span>
           </div>
-        </div>
-
-        {/* 5 Gold Stars */}
-        <div className="flex items-center gap-1 pt-3.5 pb-2.5" aria-label="Rated 5 out of 5 stars">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              className="w-4 h-4 fill-[#FBBC05] text-[#FBBC05]"
-              aria-hidden="true"
-            />
-          ))}
-        </div>
-
-        {/* Genuine Review Text */}
-        <p className="text-sm text-slate-700 leading-relaxed break-words font-normal">
-          {displayText}
-        </p>
-
-        {shouldTruncate && (
-          <button
-            type="button"
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-2 text-xs font-semibold text-[#F87808] hover:text-[#C2410C] hover:underline focus:outline-hidden cursor-pointer"
-          >
-            {isExpanded ? 'Show less' : 'Read more'}
-          </button>
+        ) : (
+          <div className="flex items-center gap-1.5 shrink-0 px-2 py-1 rounded-md bg-[#FFF1E6]/80 border border-[#F0D9C6]/60">
+            <span className="text-[11px] font-medium text-[#C2410C]">
+              {item.serviceCategory || 'Client Review'}
+            </span>
+          </div>
         )}
       </div>
 
-      {/* Discreet bottom link to Google */}
-      <div className="mt-4 pt-3 border-t border-slate-100/80 flex items-center justify-between text-xs text-slate-400">
-        <span className="text-[11px] font-medium text-slate-500 flex items-center gap-1">
-          <GoogleIcon className="w-3 h-3" />
-          Verified 5-Star Review
-        </span>
-        <a
-          href={targetLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#F87808] transition-colors inline-flex items-center gap-1 text-[11px] font-medium"
-        >
-          View on Maps
-          <ExternalLink className="w-3 h-3" />
-        </a>
+      {/* 5 Gold Stars */}
+      <div className="flex items-center gap-1 pt-3.5 pb-2.5 shrink-0" aria-label="Rated 5 out of 5 stars">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            className="w-4 h-4 fill-[#FBBC05] text-[#FBBC05]"
+            aria-hidden="true"
+          />
+        ))}
+      </div>
+
+      {/* Review Content Area: Fixed height container with clean display and no "Read more" buttons */}
+      <div className="flex-1 overflow-hidden flex flex-col justify-start">
+        <p className="text-sm text-slate-700 leading-relaxed font-normal break-words line-clamp-6">
+          {item.text}
+        </p>
       </div>
     </div>
   );
@@ -153,40 +135,43 @@ function GoogleReviewCard({ review, businessGoogleUrl }: ReviewCardProps) {
 // Skeleton Card for Loading State
 function ReviewCardSkeleton() {
   return (
-    <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs animate-pulse flex flex-col justify-between h-56">
-      <div>
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-full bg-slate-200 shrink-0" />
-            <div className="space-y-1.5">
-              <div className="w-24 h-4 bg-slate-200 rounded-sm" />
-              <div className="w-16 h-3 bg-slate-100 rounded-sm" />
-            </div>
+    <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs animate-pulse flex flex-col justify-start h-[285px] sm:h-[280px] lg:h-[285px]">
+      <div className="flex items-center justify-between pb-3 border-b border-slate-100 shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="w-11 h-11 rounded-full bg-slate-200 shrink-0" />
+          <div className="space-y-1.5">
+            <div className="w-24 h-4 bg-slate-200 rounded-sm" />
+            <div className="w-16 h-3 bg-slate-100 rounded-sm" />
           </div>
-          <div className="w-20 h-6 bg-slate-100 rounded-md" />
         </div>
-        <div className="flex gap-1 py-3">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="w-4 h-4 bg-amber-100 rounded-sm" />
-          ))}
-        </div>
-        <div className="space-y-2">
-          <div className="w-full h-3 bg-slate-100 rounded-sm" />
-          <div className="w-5/6 h-3 bg-slate-100 rounded-sm" />
-        </div>
+        <div className="w-20 h-6 bg-slate-100 rounded-md" />
       </div>
-      <div className="w-24 h-3 bg-slate-100 rounded-sm mt-4" />
+      <div className="flex gap-1 py-3 shrink-0">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="w-4 h-4 bg-amber-100 rounded-sm" />
+        ))}
+      </div>
+      <div className="space-y-2 flex-1 pt-1">
+        <div className="w-full h-3 bg-slate-100 rounded-sm" />
+        <div className="w-5/6 h-3 bg-slate-100 rounded-sm" />
+        <div className="w-4/6 h-3 bg-slate-100 rounded-sm" />
+      </div>
     </div>
   );
 }
 
 export function TestimonialsSection() {
-  const [data, setData] = useState<GoogleReviewsApiResponse | null>(null);
+  const [googleReviews, setGoogleReviews] = useState<GenuineGoogleReview[]>(
+    GENUINE_GOOGLE_REVIEWS_COLLECTION
+  );
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [googleMapsUrl, setGoogleMapsUrl] = useState<string>(
+    'https://www.google.com/maps/place/?q=place_id:ChIJE2MRcUvdKDoRxnpOIIH9QPk'
+  );
 
-  // Responsive items-per-page detection
+  // Responsive items-per-page detection (1 on mobile, 2 on tablet, 3 on desktop)
   const [itemsPerPage, setItemsPerPage] = useState<number>(3);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
   const isProgrammaticScroll = useRef(false);
@@ -215,8 +200,53 @@ export function TestimonialsSection() {
       const url = bustCache ? '/api/reviews?refresh=true' : '/api/reviews';
       const res = await fetch(url);
       const json = (await res.json()) as GoogleReviewsApiResponse;
-      if (json && json.success) {
-        setData(json);
+      if (json && json.success && Array.isArray(json.reviews) && json.reviews.length > 0) {
+        // Merge API reviews with latest supplied screenshots reviews, deduplicating by authorName
+        const seenNames = new Set<string>();
+        const merged: GenuineGoogleReview[] = [];
+
+        // Add latest genuine supplied reviews first (Ayushi Bhoi, Madhu Nidhad, Tamma V)
+        for (const rev of GENUINE_GOOGLE_REVIEWS_COLLECTION) {
+          const key = rev.authorName.toLowerCase().trim();
+          if (!seenNames.has(key)) {
+            seenNames.add(key);
+            merged.push(rev);
+          }
+        }
+
+        // Add additional genuine reviews returned from Google Places API
+        for (const rev of json.reviews) {
+          const key = rev.authorName.toLowerCase().trim();
+          if (!seenNames.has(key)) {
+            seenNames.add(key);
+            merged.push({
+              id: rev.id,
+              authorName: rev.authorName,
+              authorPhotoUrl: rev.authorPhotoUrl,
+              authorUri: rev.authorUri,
+              rating: rev.rating,
+              text: rev.text,
+              relativeTime: rev.relativeTime,
+              publishTime: rev.publishTime,
+            });
+          }
+        }
+
+        // Sort by text length so detailed reviews are prominently featured
+        merged.sort((a, b) => {
+          const aWords = a.text.trim().split(/\s+/).length;
+          const bWords = b.text.trim().split(/\s+/).length;
+          return bWords - aWords;
+        });
+
+        // Retain top 6 genuine Google reviews
+        setGoogleReviews(merged.slice(0, 6));
+
+        if (json.googleMapsUri) {
+          setGoogleMapsUrl(json.googleMapsUri);
+        }
+      } else if (json && json.success) {
+        setGoogleReviews(GENUINE_GOOGLE_REVIEWS_COLLECTION.slice(0, 6));
       } else {
         setError(json?.message || 'Unable to retrieve genuine Google reviews.');
       }
@@ -235,17 +265,58 @@ export function TestimonialsSection() {
         const res = await fetch('/api/reviews');
         const json = (await res.json()) as GoogleReviewsApiResponse;
         if (active) {
-          if (json && json.success) {
-            setData(json);
+          if (json && json.success && Array.isArray(json.reviews) && json.reviews.length > 0) {
+            const seenNames = new Set<string>();
+            const merged: GenuineGoogleReview[] = [];
+
+            // Add latest supplied genuine reviews first
+            for (const rev of GENUINE_GOOGLE_REVIEWS_COLLECTION) {
+              const key = rev.authorName.toLowerCase().trim();
+              if (!seenNames.has(key)) {
+                seenNames.add(key);
+                merged.push(rev);
+              }
+            }
+
+            // Add Google Places API reviews
+            for (const rev of json.reviews) {
+              const key = rev.authorName.toLowerCase().trim();
+              if (!seenNames.has(key)) {
+                seenNames.add(key);
+                merged.push({
+                  id: rev.id,
+                  authorName: rev.authorName,
+                  authorPhotoUrl: rev.authorPhotoUrl,
+                  authorUri: rev.authorUri,
+                  rating: rev.rating,
+                  text: rev.text,
+                  relativeTime: rev.relativeTime,
+                  publishTime: rev.publishTime,
+                });
+              }
+            }
+
+            // Prioritize longer detailed reviews
+            merged.sort((a, b) => {
+              const aWords = a.text.trim().split(/\s+/).length;
+              const bWords = b.text.trim().split(/\s+/).length;
+              return bWords - aWords;
+            });
+
+            setGoogleReviews(merged.slice(0, 6));
+
+            if (json.googleMapsUri) {
+              setGoogleMapsUrl(json.googleMapsUri);
+            }
           } else {
-            setError(json?.message || 'Unable to retrieve genuine Google reviews.');
+            setGoogleReviews(GENUINE_GOOGLE_REVIEWS_COLLECTION.slice(0, 6));
           }
           setLoading(false);
         }
       } catch (err) {
         if (active) {
           console.error('Failed to fetch reviews:', err);
-          setError('A network error occurred while loading Google reviews.');
+          setGoogleReviews(GENUINE_GOOGLE_REVIEWS_COLLECTION.slice(0, 6));
           setLoading(false);
         }
       }
@@ -257,38 +328,57 @@ export function TestimonialsSection() {
     };
   }, []);
 
-  const reviews = data?.reviews || [];
-  const totalReviewsCount = reviews.length;
-  const maxIndex = Math.max(0, totalReviewsCount - itemsPerPage);
+  // Build the 12-item collection by alternating 6 genuine Google reviews and 6 temporary sample reviews
+  const combinedTestimonials: TestimonialItem[] = useMemo(() => {
+    const formattedGoogle: TestimonialItem[] = googleReviews.slice(0, 6).map((rev) => ({
+      id: rev.id,
+      isGoogleReview: true,
+      authorName: rev.authorName,
+      authorPhotoUrl: rev.authorPhotoUrl,
+      rating: rev.rating || 5,
+      text: rev.text,
+      relativeTime: rev.relativeTime,
+    }));
 
-  const handleNext = () => {
-    if (totalReviewsCount <= itemsPerPage) return;
-    setCurrentIndex((prev) => (prev + 1 > maxIndex ? 0 : prev + 1));
-  };
+    const formattedSample: TestimonialItem[] = TEMPORARY_SAMPLE_TESTIMONIALS.slice(0, 6).map(
+      (sample) => ({
+        id: sample.id,
+        isGoogleReview: false,
+        authorName: sample.authorName,
+        authorPhotoUrl: null,
+        rating: sample.rating,
+        text: sample.text,
+        relativeTime: sample.relativeTime,
+        serviceCategory: sample.serviceCategory,
+      })
+    );
 
-  const handlePrev = () => {
-    if (totalReviewsCount <= itemsPerPage) return;
-    setCurrentIndex((prev) => (prev - 1 < 0 ? maxIndex : prev - 1));
-  };
-
-  // Sync mobile scroll position
-  const handleMobileScroll = () => {
-    if (isProgrammaticScroll.current || !mobileScrollRef.current) return;
-    const container = mobileScrollRef.current;
-    const itemWidth = container.clientWidth;
-    if (itemWidth > 0) {
-      const newIndex = Math.round(container.scrollLeft / itemWidth);
-      if (newIndex >= 0 && newIndex < totalReviewsCount && newIndex !== currentIndex) {
-        setCurrentIndex(newIndex);
+    // Alternate: [Google 0, Sample 0, Google 1, Sample 1, Google 2, Sample 2, ...]
+    const interleaved: TestimonialItem[] = [];
+    const maxLen = Math.max(formattedGoogle.length, formattedSample.length);
+    for (let i = 0; i < maxLen; i++) {
+      if (i < formattedGoogle.length) {
+        interleaved.push(formattedGoogle[i]);
+      }
+      if (i < formattedSample.length) {
+        interleaved.push(formattedSample[i]);
       }
     }
-  };
 
-  const scrollToMobileSlide = (index: number) => {
+    // Limit collection to exactly 12 reviews (divisible cleanly by 3 on desktop for 4 exact groups)
+    return interleaved.slice(0, 12);
+  }, [googleReviews]);
+
+  const totalReviewsCount = combinedTestimonials.length;
+  // Calculate dynamic total pages based on visible items per page
+  const totalPages = Math.max(1, Math.ceil(totalReviewsCount / itemsPerPage));
+  const activePage = Math.min(currentPage, totalPages - 1);
+
+  const scrollToMobileSlide = (page: number) => {
     if (mobileScrollRef.current) {
       isProgrammaticScroll.current = true;
       mobileScrollRef.current.scrollTo({
-        left: index * mobileScrollRef.current.clientWidth,
+        left: page * mobileScrollRef.current.clientWidth,
         behavior: 'smooth',
       });
       setTimeout(() => {
@@ -297,10 +387,38 @@ export function TestimonialsSection() {
     }
   };
 
-  const googleMapsUrl =
-    data?.googleMapsUri ||
-    'https://www.google.com/maps/place/?q=place_id:ChIJE2MRcUvdKDoRxnpOIIH9QPk';
+  const handleNext = () => {
+    if (totalPages <= 1) return;
+    const nextPage = (activePage + 1) % totalPages;
+    setCurrentPage(nextPage);
+    scrollToMobileSlide(nextPage);
+  };
 
+  const handlePrev = () => {
+    if (totalPages <= 1) return;
+    const prevPage = (activePage - 1 + totalPages) % totalPages;
+    setCurrentPage(prevPage);
+    scrollToMobileSlide(prevPage);
+  };
+
+  // Sync mobile scroll position with active page
+  const handleMobileScroll = () => {
+    if (isProgrammaticScroll.current || !mobileScrollRef.current) return;
+    const container = mobileScrollRef.current;
+    const itemWidth = container.clientWidth;
+    if (itemWidth > 0) {
+      const newPage = Math.round(container.scrollLeft / itemWidth);
+      if (newPage >= 0 && newPage < totalPages && newPage !== activePage) {
+        setCurrentPage(newPage);
+      }
+    }
+  };
+
+  // Cards to display in current group on desktop/tablet
+  const displayedReviews = useMemo(() => {
+    const startIndex = activePage * itemsPerPage;
+    return combinedTestimonials.slice(startIndex, startIndex + itemsPerPage);
+  }, [combinedTestimonials, activePage, itemsPerPage]);
 
   return (
     <section
@@ -316,10 +434,10 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto space-y-3 mb-12 sm:mb-16">
-          {/* Eyebrow */}
+          {/* Eyebrow: Orange dot + CUSTOMER TESTIMONIALS */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-2xs text-slate-700 text-xs font-bold uppercase tracking-wider">
-            <GoogleIcon className="w-3.5 h-3.5" />
-            <span>GOOGLE REVIEWS</span>
+            <span className="w-2 h-2 rounded-full bg-[#F87808] shrink-0" aria-hidden="true" />
+            <span>CUSTOMER TESTIMONIALS</span>
           </div>
 
           {/* Heading */}
@@ -342,20 +460,17 @@ export function TestimonialsSection() {
           </div>
         )}
 
-        {/* Error / Fallback State */}
-        {!loading && (error || reviews.length === 0) && (
+        {/* Error Fallback State */}
+        {!loading && error && combinedTestimonials.length === 0 && (
           <div className="max-w-xl mx-auto bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-xs space-y-4">
             <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-600 border border-amber-200/80 flex items-center justify-center mx-auto">
               <AlertCircle className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-serif font-semibold text-slate-900">
-                Real Reviews on Google Business Profile
+                Customer Testimonials
               </h3>
-              <p className="text-sm text-slate-600 mt-1">
-                {error ||
-                  'No reviews currently returned by the Google Places API. You can read all verified patient and family testimonials directly on Google Maps.'}
-              </p>
+              <p className="text-sm text-slate-600 mt-1">{error}</p>
             </div>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -365,7 +480,6 @@ export function TestimonialsSection() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F87808] hover:bg-[#C2410C] text-white text-sm font-semibold transition-colors shadow-xs"
               >
                 <span>Read Verified Reviews on Google</span>
-                <ExternalLink className="w-4 h-4" />
               </a>
               <button
                 type="button"
@@ -379,85 +493,78 @@ export function TestimonialsSection() {
           </div>
         )}
 
-        {/* Reviews Carousel (When loaded with reviews) */}
-        {!loading && reviews.length > 0 && (
+        {/* Reviews Carousel (Alternating Google Reviews & Sample Testimonials) */}
+        {!loading && combinedTestimonials.length > 0 && (
           <div className="relative max-w-7xl mx-auto px-2 sm:px-8 lg:px-12">
             {/* Left Navigation Arrow */}
-            {totalReviewsCount > itemsPerPage && (
+            {totalPages > 1 && (
               <button
                 type="button"
                 onClick={handlePrev}
                 className="hidden md:flex absolute -left-2 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-[#F87808] hover:border-[#F87808]/50 items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer focus:outline-hidden"
-                aria-label="Previous Google reviews"
-                id="prev-google-review-btn"
+                aria-label="Previous testimonial group"
+                id="prev-testimonial-btn"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
             )}
 
-            {/* Mobile View: Horizontal Snap Carousel */}
+            {/* Mobile View: Horizontal Snap Carousel (1 card per view) */}
             <div
               ref={mobileScrollRef}
               onScroll={handleMobileScroll}
               className="flex md:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden touch-pan-x py-2"
             >
-              {reviews.map((review, idx) => (
+              {combinedTestimonials.map((item, idx) => (
                 <div
-                  key={`mobile-${review.id}-${idx}`}
+                  key={`mobile-${item.id}-${idx}`}
                   className="w-full shrink-0 snap-center px-1"
                 >
-                  <GoogleReviewCard
-                    review={review}
-                    businessGoogleUrl={googleMapsUrl}
-                  />
+                  <TestimonialCard item={item} />
                 </div>
               ))}
             </div>
 
-            {/* Desktop / Tablet Grid View (Window of itemsPerPage cards) */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {reviews
-                .slice(currentIndex, currentIndex + itemsPerPage)
-                .map((review, idx) => (
-                  <div key={`desktop-${review.id}-${idx}`} className="h-full">
-                    <GoogleReviewCard
-                      review={review}
-                      businessGoogleUrl={googleMapsUrl}
-                    />
-                  </div>
-                ))}
+            {/* Desktop / Tablet Grid View (Exactly 3 distinct cards on desktop, 2 on tablet per group) */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+              {displayedReviews.map((item, idx) => (
+                <div key={`desktop-${item.id}-${idx}`} className="h-full">
+                  <TestimonialCard item={item} />
+                </div>
+              ))}
             </div>
 
             {/* Right Navigation Arrow */}
-            {totalReviewsCount > itemsPerPage && (
+            {totalPages > 1 && (
               <button
                 type="button"
                 onClick={handleNext}
                 className="hidden md:flex absolute -right-2 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-[#F87808] hover:border-[#F87808]/50 items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer focus:outline-hidden"
-                aria-label="Next Google reviews"
-                id="next-google-review-btn"
+                aria-label="Next testimonial group"
+                id="next-testimonial-btn"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             )}
 
-            {/* Carousel Indicator Dots */}
-            {totalReviewsCount > 1 && (
+            {/* Carousel Indicator Dots: Calculated dynamically based on actual pages */}
+            {totalPages > 1 && (
               <div className="flex justify-center gap-2 mt-8 sm:mt-10">
-                {reviews.map((_, idx) => (
+                {Array.from({ length: totalPages }).map((_, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => {
-                      setCurrentIndex(idx > maxIndex ? maxIndex : idx);
+                      setCurrentPage(idx);
                       scrollToMobileSlide(idx);
                     }}
                     className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      currentIndex === idx
+                      activePage === idx
                         ? 'w-8 bg-[#F87808]'
                         : 'w-2 bg-slate-300 hover:bg-slate-400'
                     }`}
-                    aria-label={`Go to review ${idx + 1}`}
+                    aria-label={`Go to testimonial group ${idx + 1}`}
+                    aria-current={activePage === idx ? 'true' : undefined}
                   />
                 ))}
               </div>

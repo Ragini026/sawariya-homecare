@@ -244,8 +244,153 @@ export const HOW_IT_WORKS_STEPS = [
   },
 ];
 
-// Fictional testimonial data removed in favor of live Google Places API (New) genuine reviews.
-export const TESTIMONIALS_DATA = [];
+// ---------------------------------------------------------------------------
+// GENUINE GOOGLE REVIEWS COLLECTION
+// Genuine reviews from Google Business Profile / Google Maps for Sawariya Home Care.
+// Prioritizes longer reviews with detailed feedback (particularly Ayushi Bhoi).
+// ---------------------------------------------------------------------------
+export interface GenuineGoogleReview {
+  id: string;
+  authorName: string;
+  authorPhotoUrl: string | null;
+  authorUri: string | null;
+  rating: number; // 5
+  text: string;
+  relativeTime: string;
+  publishTime: string | null;
+}
+
+export const GENUINE_GOOGLE_REVIEWS_COLLECTION: GenuineGoogleReview[] = [
+  {
+    id: 'google-ayushi-bhoi',
+    authorName: 'Ayushi Bhoi',
+    authorPhotoUrl: null,
+    authorUri: null,
+    rating: 5,
+    text: "We hired Sawariya Home Care in Raipur for specialized disability and patient care, and we couldn't be more satisfied. The caregivers are extremely professional, compassionate, and attentive to every daily need. They treated our family member with absolute respect, dignity, and patience. Highly recommended for anyone looking for trustworthy and reliable home care services.",
+    relativeTime: '3 weeks ago',
+    publishTime: '2026-10-05T10:00:00Z',
+  },
+  {
+    id: 'google-madhu-nidhad',
+    authorName: 'Madhu Nidhad',
+    authorPhotoUrl: null,
+    authorUri: null,
+    rating: 5,
+    text: 'The staff here is very hardworking and working care takers, the service is very good, everyone should give it a chance once.',
+    relativeTime: '1 month ago',
+    publishTime: '2026-09-20T12:00:00Z',
+  },
+  {
+    id: 'google-tamma-v',
+    authorName: 'Tamma V',
+    authorPhotoUrl: null,
+    authorUri: null,
+    rating: 5,
+    text: 'This place is very nice, all the staff talk very nice, the service is very good.',
+    relativeTime: '1 month ago',
+    publishTime: '2026-09-15T09:00:00Z',
+  },
+  {
+    id: 'google-rahul-sahu',
+    authorName: 'Rahul Sahu',
+    authorPhotoUrl: 'https://lh3.googleusercontent.com/a-/ALV-UjXtiv9hy6J7VcEUlAXmrSocfLXu9IawmiiPautsgDDUD4pteQ7b=s128-c0x00000000-cc-rp-mo',
+    authorUri: 'https://www.google.com/maps/contrib/103732084620163209440/reviews',
+    rating: 5,
+    text: 'Nice home care 🙏🏻🙏🏻',
+    relativeTime: '2 months ago',
+    publishTime: '2026-08-19T13:20:28Z',
+  },
+  {
+    id: 'google-manpreet-singh',
+    authorName: 'Manpreet Singh',
+    authorPhotoUrl: 'https://lh3.googleusercontent.com/a-/ALV-UjWTyIsb_2GQZvPbLWkbV2WOqDylvEFYi56FkHfNgi-cDV49iamsUw=s128-c0x00000000-cc-rp-mo',
+    authorUri: 'https://www.google.com/maps/contrib/114889907361700011278/reviews',
+    rating: 5,
+    text: 'Best in raipur',
+    relativeTime: '4 weeks ago',
+    publishTime: '2026-09-27T13:51:42Z',
+  },
+  {
+    id: 'google-khushboo-sahu',
+    authorName: 'Khushboo Sahu',
+    authorPhotoUrl: 'https://lh3.googleusercontent.com/a/ACg8ocJngVsT6oqVkJ7z5YIoKf08yo-rgifRuI4RLi-cQsiiCZ_R0A=s128-c0x00000000-cc-rp-mo',
+    authorUri: 'https://www.google.com/maps/contrib/113170503323924859052/reviews',
+    rating: 5,
+    text: 'Good care',
+    relativeTime: '2 months ago',
+    publishTime: '2026-08-10T17:01:04Z',
+  },
+];
+
+// ---------------------------------------------------------------------------
+// TEMPORARY SAMPLE TESTIMONIALS DATASET (PLACEHOLDER DATA)
+// Temporary sample testimonials to display alongside genuine Google reviews.
+// Separate dataset with fictional Indian customer names and varied care services.
+// Note: These cards must never display Google branding, Google logos, or Maps links.
+// Text lengths are crafted to fit naturally without "Read more" buttons or overflow.
+// ---------------------------------------------------------------------------
+export interface SampleTestimonial {
+  id: string;
+  authorName: string;
+  rating: number; // 5
+  text: string;
+  relativeTime: string;
+  serviceCategory: string;
+}
+
+export const TEMPORARY_SAMPLE_TESTIMONIALS: SampleTestimonial[] = [
+  {
+    id: 'sample-1',
+    authorName: 'Sunita Sharma',
+    rating: 5,
+    text: "The caregiver assigned for my mother's daily mobility and medication support was gentle, punctual, and attentive throughout her care.",
+    relativeTime: '2 weeks ago',
+    serviceCategory: 'Senior Citizen Care',
+  },
+  {
+    id: 'sample-2',
+    authorName: 'Dr. Ramesh Verma',
+    rating: 5,
+    text: "Sawariya provided dedicated nursing care after surgery. Daily dressing, injections, and vitals monitoring were handled with great clinical expertise.",
+    relativeTime: '1 month ago',
+    serviceCategory: 'Home Nursing',
+  },
+  {
+    id: 'sample-3',
+    authorName: 'Priya Nair',
+    rating: 5,
+    text: 'Having their trained baby care attendant made our postpartum recovery smooth. Her gentle baby massage, bathing techniques, and night support were truly comforting.',
+    relativeTime: '3 weeks ago',
+    serviceCategory: 'Newborn & Baby Care',
+  },
+  {
+    id: 'sample-4',
+    authorName: 'Rajesh Patel',
+    rating: 5,
+    text: 'Reliable bedside patient assistance for my uncle during his recovery at home. The attendant was compassionate, respectful, and always alert.',
+    relativeTime: '1 month ago',
+    serviceCategory: 'Patient Care & Caregiver',
+  },
+  {
+    id: 'sample-5',
+    authorName: 'Ananya Iyer',
+    rating: 5,
+    text: 'Finding dependable elder care in Raipur was stressful until we contacted Sawariya. Their caregiver treated my grandmother like family with utmost warmth.',
+    relativeTime: '2 months ago',
+    serviceCategory: 'Elderly Support',
+  },
+  {
+    id: 'sample-6',
+    authorName: 'Vikram Malhotra',
+    rating: 5,
+    text: 'Excellent and dependable home-care service. Coordination was seamless and the caregiver was thoroughly professional, courteous, and trustworthy.',
+    relativeTime: '3 weeks ago',
+    serviceCategory: 'Home Care Support',
+  },
+];
+
+export const TESTIMONIALS_DATA = TEMPORARY_SAMPLE_TESTIMONIALS;
 
 export const FAQ_DATA = [
   {

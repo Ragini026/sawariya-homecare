@@ -44,6 +44,7 @@ export function Navbar({ onOpenBooking }: NavbarProps = {}) {
     { label: 'Home', href: '#hero' },
     { label: 'About', href: '#about-us' },
     { label: 'Services', href: '#services' },
+    { label: 'Testimonials', href: '#testimonials' },
     { label: 'FAQ', href: '#faq' },
   ];
 
